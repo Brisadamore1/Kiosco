@@ -32,6 +32,10 @@
             Localidades = new Label();
             tabControl = new TabControl();
             tabPageLista = new TabPage();
+            btnSalir = new FontAwesome.Sharp.IconButton();
+            btnBuscar = new FontAwesome.Sharp.IconButton();
+            txtFiltro = new TextBox();
+            label3 = new Label();
             btnEliminar = new FontAwesome.Sharp.IconButton();
             btnEditar = new FontAwesome.Sharp.IconButton();
             btnAgregar = new FontAwesome.Sharp.IconButton();
@@ -56,7 +60,7 @@
             panel1.Controls.Add(Localidades);
             panel1.Location = new Point(2, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(956, 100);
+            panel1.Size = new Size(956, 83);
             panel1.TabIndex = 0;
             // 
             // Localidades
@@ -74,14 +78,18 @@
             tabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControl.Controls.Add(tabPageLista);
             tabControl.Controls.Add(tabPageAgregarEditar);
-            tabControl.Location = new Point(2, 149);
+            tabControl.Location = new Point(2, 101);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(956, 304);
+            tabControl.Size = new Size(956, 352);
             tabControl.TabIndex = 1;
             // 
             // tabPageLista
             // 
+            tabPageLista.Controls.Add(btnSalir);
+            tabPageLista.Controls.Add(btnBuscar);
+            tabPageLista.Controls.Add(txtFiltro);
+            tabPageLista.Controls.Add(label3);
             tabPageLista.Controls.Add(btnEliminar);
             tabPageLista.Controls.Add(btnEditar);
             tabPageLista.Controls.Add(btnAgregar);
@@ -90,10 +98,58 @@
             tabPageLista.Location = new Point(4, 24);
             tabPageLista.Name = "tabPageLista";
             tabPageLista.Padding = new Padding(3);
-            tabPageLista.Size = new Size(948, 276);
+            tabPageLista.Size = new Size(948, 324);
             tabPageLista.TabIndex = 0;
             tabPageLista.Text = "Lista";
             tabPageLista.UseVisualStyleBackColor = true;
+            // 
+            // btnSalir
+            // 
+            btnSalir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSalir.IconChar = FontAwesome.Sharp.IconChar.Close;
+            btnSalir.IconColor = Color.Black;
+            btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSalir.IconSize = 24;
+            btnSalir.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSalir.Location = new Point(834, 24);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(108, 31);
+            btnSalir.TabIndex = 13;
+            btnSalir.Text = "&Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            btnBuscar.IconColor = Color.Black;
+            btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnBuscar.IconSize = 24;
+            btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBuscar.Location = new Point(712, 24);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(108, 31);
+            btnBuscar.TabIndex = 12;
+            btnBuscar.Text = "&Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(140, 24);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(541, 26);
+            txtFiltro.TabIndex = 8;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(17, 27);
+            label3.Name = "label3";
+            label3.Size = new Size(107, 18);
+            label3.TabIndex = 7;
+            label3.Text = "Buscar producto";
             // 
             // btnEliminar
             // 
@@ -103,7 +159,7 @@
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEliminar.IconSize = 24;
             btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.Location = new Point(834, 150);
+            btnEliminar.Location = new Point(834, 203);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(108, 28);
             btnEliminar.TabIndex = 3;
@@ -119,7 +175,7 @@
             btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEditar.IconSize = 24;
             btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditar.Location = new Point(834, 107);
+            btnEditar.Location = new Point(834, 160);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(108, 28);
             btnEditar.TabIndex = 2;
@@ -135,7 +191,7 @@
             btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAgregar.IconSize = 24;
             btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(834, 58);
+            btnAgregar.Location = new Point(834, 111);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(108, 31);
             btnAgregar.TabIndex = 1;
@@ -149,11 +205,11 @@
             dataGridLocalidadesView.AllowUserToDeleteRows = false;
             dataGridLocalidadesView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridLocalidadesView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridLocalidadesView.Location = new Point(6, 31);
+            dataGridLocalidadesView.Location = new Point(-4, 73);
             dataGridLocalidadesView.Name = "dataGridLocalidadesView";
             dataGridLocalidadesView.ReadOnly = true;
             dataGridLocalidadesView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridLocalidadesView.Size = new Size(811, 217);
+            dataGridLocalidadesView.Size = new Size(811, 255);
             dataGridLocalidadesView.TabIndex = 0;
             // 
             // tabPageAgregarEditar
@@ -166,7 +222,7 @@
             tabPageAgregarEditar.Location = new Point(4, 24);
             tabPageAgregarEditar.Name = "tabPageAgregarEditar";
             tabPageAgregarEditar.Padding = new Padding(3);
-            tabPageAgregarEditar.Size = new Size(952, 276);
+            tabPageAgregarEditar.Size = new Size(948, 324);
             tabPageAgregarEditar.TabIndex = 1;
             tabPageAgregarEditar.Text = "Agregar/Editar";
             tabPageAgregarEditar.UseVisualStyleBackColor = true;
@@ -233,6 +289,7 @@
             panel1.PerformLayout();
             tabControl.ResumeLayout(false);
             tabPageLista.ResumeLayout(false);
+            tabPageLista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridLocalidadesView).EndInit();
             tabPageAgregarEditar.ResumeLayout(false);
             tabPageAgregarEditar.PerformLayout();
@@ -254,5 +311,9 @@
         private FontAwesome.Sharp.IconButton btnAgregar;
         private FontAwesome.Sharp.IconButton btnEditar;
         private FontAwesome.Sharp.IconButton btnEliminar;
+        private Label label3;
+        private TextBox txtFiltro;
+        private FontAwesome.Sharp.IconButton btnBuscar;
+        private FontAwesome.Sharp.IconButton btnSalir;
     }
 }
