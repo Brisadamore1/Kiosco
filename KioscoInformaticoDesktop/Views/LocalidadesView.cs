@@ -16,9 +16,8 @@ namespace KioscoInformaticoDesktop.Views
 {
     public partial class LocalidadesView : Form
     {
-        IGenericService<Localidad> localidadService = new GenericService<Localidad>();
+        ILocalidadService localidadService = new LocalidadService();
         BindingSource ListaLocalidades = new BindingSource();
-        List<Localidad> ListaAFiltrar = new List<Localidad>();
         Localidad localidadCurrent;
         public LocalidadesView()
         {
@@ -30,7 +29,6 @@ namespace KioscoInformaticoDesktop.Views
         private async Task CargarDatosAGrilla()
         {
             ListaLocalidades.DataSource = await localidadService.GetAllAsync();
-            ListaAFiltrar = ((List<Localidad>)ListaLocalidades.DataSource);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -99,15 +97,14 @@ namespace KioscoInformaticoDesktop.Views
             FiltrarLocalidades();
         }
 
-        private void FiltrarLocalidades()
+        private async void FiltrarLocalidades()
         {
-            var localidadesFiltradas = ListaAFiltrar.Where(p => p.Nombre.Contains(txtFiltro.Text)).ToList();
-            ListaLocalidades.DataSource = localidadesFiltradas;
+            ListaLocalidades.DataSource = await localidadService.GetAllAsync(txtFiltro.Text);
         }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-            FiltrarLocalidades();
+            
         }
     }
 }
