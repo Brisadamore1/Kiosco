@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KioscoInformaticoBackend", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KioscoInformaticoApp", "KioscoInformaticoApp\KioscoInformaticoApp-\KioscoInformaticoApp.csproj", "{C8D0DB54-E7D2-493D-A0A9-B58B3E9436E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KioscoInformaticoWeb", "KioscoInformaticoWeb\KioscoInformaticoWeb.csproj", "{C61126D0-EB97-400F-855E-71FCC3573A23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{C8D0DB54-E7D2-493D-A0A9-B58B3E9436E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8D0DB54-E7D2-493D-A0A9-B58B3E9436E8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C8D0DB54-E7D2-493D-A0A9-B58B3E9436E8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C61126D0-EB97-400F-855E-71FCC3573A23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C61126D0-EB97-400F-855E-71FCC3573A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C61126D0-EB97-400F-855E-71FCC3573A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C61126D0-EB97-400F-855E-71FCC3573A23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
