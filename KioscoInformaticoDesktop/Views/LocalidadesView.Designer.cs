@@ -66,10 +66,10 @@
             // Localidades
             // 
             Localidades.AutoSize = true;
-            Localidades.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Localidades.Location = new Point(55, 39);
+            Localidades.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Localidades.Location = new Point(396, 28);
             Localidades.Name = "Localidades";
-            Localidades.Size = new Size(129, 30);
+            Localidades.Size = new Size(146, 35);
             Localidades.TabIndex = 0;
             Localidades.Text = "Localidades";
             // 
@@ -209,7 +209,7 @@
             dataGridLocalidadesView.Name = "dataGridLocalidadesView";
             dataGridLocalidadesView.ReadOnly = true;
             dataGridLocalidadesView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridLocalidadesView.Size = new Size(811, 255);
+            dataGridLocalidadesView.Size = new Size(800, 255);
             dataGridLocalidadesView.TabIndex = 0;
             // 
             // tabPageAgregarEditar

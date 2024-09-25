@@ -1,4 +1,5 @@
-﻿using KioscoInformaticoServices.Interfaces;
+﻿using KioscoInformaticoDesktop.DataContext;
+using KioscoInformaticoServices.Interfaces;
 using KioscoInformaticoServices.Models;
 using KioscoInformaticoServices.Services;
 using System;
@@ -33,7 +34,7 @@ namespace KioscoInformaticoDesktop.Views
             dataGridProductosView.Columns[3].Visible = false;
             dataGridProductosView.Columns[4].Visible = false;
             dataGridProductosView.Columns["Id"].DefaultCellStyle.Format = "N0";
-            ListaAFiltrar = ((List<Producto>)ListaProductos.DataSource);
+            ListaAFiltrar = (List<Producto>)ListaProductos.DataSource;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -93,17 +94,20 @@ namespace KioscoInformaticoDesktop.Views
             var result = MessageBox.Show($"¿Está seguro que desea eliminar el producto {productoCurrent.Nombre}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                await productoService.DeleteAsync(productoCurrent.Id);
-                await CargarDatosAGrilla();
+                productoCurrent = (Producto)ListaProductos.Current;
+                if(productoCurrent != null)
+                {
+                    await productoService.DeleteAsync(productoCurrent.Id);
+                    await CargarDatosAGrilla();
+                }
+                
             }
             productoCurrent = null;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            productoCurrent = null;
-            txtNombre.Text = string.Empty;
-            tabControl.SelectTab(tabPageLista);
+            this.Close();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -119,7 +123,7 @@ namespace KioscoInformaticoDesktop.Views
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-            FiltrarProductos();
+           FiltrarProductos();
         }
     }
 }   
