@@ -15,4 +15,8 @@
     <ProjectReference Include="..\KioscoInformaticoServices\KioscoInformaticoServices.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Clientes\" />
+  </ItemGroup>
+
 </Project>

@@ -8,10 +8,10 @@ public partial class Producto
 {
     public int Id { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "El campo nombre es obligatorio.")]
     public string Nombre { get; set; } = null!;
 
-    [Required]
+    [Required(ErrorMessage = "El campo nombre es obligatorio.")]
     [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode =true)]
     public decimal Precio { get; set; }
 

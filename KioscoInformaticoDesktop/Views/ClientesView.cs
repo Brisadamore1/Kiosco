@@ -87,6 +87,7 @@ namespace KioscoInformaticoDesktop.Views
 
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
+            clienteCurrent = (Cliente)ListaClientes.Current;
             var result = MessageBox.Show($"¿Está seguro que desea eliminar el cliente {clienteCurrent.Nombre}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -97,6 +98,7 @@ namespace KioscoInformaticoDesktop.Views
                     await CargarGrilla();
                 }
             }
+            clienteCurrent = null;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
