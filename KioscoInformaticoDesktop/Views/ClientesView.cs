@@ -41,7 +41,6 @@ namespace KioscoInformaticoDesktop.Views
         {
             ListaClientes.DataSource = await clienteService.GetAllAsync();
             dataGridClientesView.Columns[5].Visible = false;
-            dataGridClientesView.Columns[7].Visible = false;
             dataGridClientesView.Columns["Id"].DefaultCellStyle.Format = "N0";
             ListaAFiltrar = (List<Cliente>)ListaClientes.DataSource;
         }
@@ -58,6 +57,7 @@ namespace KioscoInformaticoDesktop.Views
             txtDireccion.Text = clienteCurrent.Direccion;
             txtTelefono.Text = clienteCurrent.Telefonos;
             cboLocalidades.SelectedValue = clienteCurrent.LocalidadId;
+            dateTimeFechaNacimiento.Value = clienteCurrent.FechaNacimiento;
             tabControl.SelectTab(tabPageAgregarEditar);
         }
 
@@ -74,6 +74,7 @@ namespace KioscoInformaticoDesktop.Views
                 clienteCurrent.Direccion = txtDireccion.Text;
                 clienteCurrent.Telefonos = txtTelefono.Text;
                 clienteCurrent.LocalidadId = (int)cboLocalidades.SelectedValue;
+                clienteCurrent.FechaNacimiento = dateTimeFechaNacimiento.Value;
                 await clienteService.UpdateAsync(clienteCurrent);
                 clienteCurrent = null;
             }
@@ -84,7 +85,8 @@ namespace KioscoInformaticoDesktop.Views
                     Nombre = txtNombre.Text,
                     Direccion = txtDireccion.Text,
                     Telefonos = txtTelefono.Text,
-                    LocalidadId = (int)cboLocalidades.SelectedValue
+                    LocalidadId = (int)cboLocalidades.SelectedValue,
+                    FechaNacimiento =dateTimeFechaNacimiento.Value
                 };
                 await clienteService.AddAsync(cliente);
             }

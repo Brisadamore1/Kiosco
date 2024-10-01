@@ -55,9 +55,9 @@ public partial class KioscoContext : DbContext
 
             entity.Property(e => e.FechaNacimiento).HasMaxLength(6);
 
-            entity.HasOne(d => d.Localidad).WithMany(p => p.Clientes)
-                .HasForeignKey(d => d.LocalidadId)
-                .HasConstraintName("FK_Clientes_Localidades_LocalidadId");
+           // entity.HasOne(d => d.Localidad).WithMany(p => p.Clientes)
+                //.HasForeignKey(d => d.LocalidadId)
+                //.HasConstraintName("FK_Clientes_Localidades_LocalidadId");
         });
 
         modelBuilder.Entity<Compra>(entity =>
@@ -141,9 +141,9 @@ public partial class KioscoContext : DbContext
 
             entity.HasIndex(e => e.LocalidadId, "IX_Proveedores_LocalidadId");
 
-            entity.HasOne(d => d.Localidad).WithMany(p => p.Proveedores)
-                .HasForeignKey(d => d.LocalidadId)
-                .HasConstraintName("FK_Proveedores_Localidades_LocalidadId");
+           // entity.HasOne(d => d.Localidad).WithMany(p => p.Proveedores)
+                //.HasForeignKey(d => d.LocalidadId)
+                //.HasConstraintName("FK_Proveedores_Localidades_LocalidadId");
         });
 
         modelBuilder.Entity<Venta>(entity =>
@@ -156,9 +156,9 @@ public partial class KioscoContext : DbContext
 
             entity.Property(e => e.Fecha).HasMaxLength(6);
 
-            entity.HasOne(d => d.Cliente).WithMany(p => p.Venta)
-                .HasForeignKey(d => d.ClienteId)
-                .HasConstraintName("FK_Ventas_Clientes_ClienteId");
+            //entity.HasOne(d => d.Cliente).WithMany(p => p.Venta)
+            //    .HasForeignKey(d => d.ClienteId)
+            //    .HasConstraintName("FK_Ventas_Clientes_ClienteId");
         });
 
         OnModelCreatingPartial(modelBuilder);
