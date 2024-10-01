@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using KioscoInformaticoBackend.DataContext;
 using KioscoInformaticoServices.Models;
+using Microsoft.CodeAnalysis.Elfie.Serialization;
+using System.ComponentModel;
 
 namespace KioscoInformaticoBackend.Controllers
 {
@@ -23,9 +25,15 @@ namespace KioscoInformaticoBackend.Controllers
 
         // GET: api/Clientes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes()
+        public async Task<ActionResult<IEnumerable<Cliente>>> GetCLientes([FromQuery] string? filtro)
         {
-            return await _context.Clientes.ToListAsync();
+            if (filtro != null) 
+            {
+                return await _context.Clientes.Include(c=> c.Localidad)
+                .Where(c=> c.Nombre.ToUpper().Contains(filtro.ToUpper()))
+                .ToListAsync();
+            }
+            return await _context.Clientes.Include(c=> c.Localidad).ToListAsync();
         }
 
         // GET: api/Clientes/5

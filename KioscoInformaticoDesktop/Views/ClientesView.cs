@@ -17,6 +17,7 @@ namespace KioscoInformaticoDesktop.Views
     public partial class ClientesView : Form
     {
         IGenericService<Cliente> clienteService = new GenericService<Cliente>();
+        ILocalidadService localidadService = new LocalidadService();
         BindingSource ListaClientes = new BindingSource();
         List<Cliente> ListaAFiltrar = new List<Cliente>();
         Cliente clienteCurrent;
@@ -26,11 +27,22 @@ namespace KioscoInformaticoDesktop.Views
             InitializeComponent();
             dataGridClientesView.DataSource = ListaClientes;
             CargarGrilla();
+            CargarCombo();
+        }
+
+        private async void CargarCombo()
+        {
+            cboLocalidades.DataSource =  await localidadService.GetAllAsync();
+            cboLocalidades.DisplayMember = "Nombre";
+            cboLocalidades.ValueMember = "Id";
         }
 
         private async Task CargarGrilla()
         {
             ListaClientes.DataSource = await clienteService.GetAllAsync();
+            dataGridClientesView.Columns[5].Visible = false;
+            dataGridClientesView.Columns[7].Visible = false;
+            dataGridClientesView.Columns["Id"].DefaultCellStyle.Format = "N0";
             ListaAFiltrar = (List<Cliente>)ListaClientes.DataSource;
         }
 
@@ -45,6 +57,7 @@ namespace KioscoInformaticoDesktop.Views
             txtNombre.Text = clienteCurrent.Nombre;
             txtDireccion.Text = clienteCurrent.Direccion;
             txtTelefono.Text = clienteCurrent.Telefonos;
+            cboLocalidades.SelectedValue = clienteCurrent.LocalidadId;
             tabControl.SelectTab(tabPageAgregarEditar);
         }
 
@@ -60,6 +73,7 @@ namespace KioscoInformaticoDesktop.Views
                 clienteCurrent.Nombre = txtNombre.Text;
                 clienteCurrent.Direccion = txtDireccion.Text;
                 clienteCurrent.Telefonos = txtTelefono.Text;
+                clienteCurrent.LocalidadId = (int)cboLocalidades.SelectedValue;
                 await clienteService.UpdateAsync(clienteCurrent);
                 clienteCurrent = null;
             }
@@ -69,7 +83,8 @@ namespace KioscoInformaticoDesktop.Views
                 {
                     Nombre = txtNombre.Text,
                     Direccion = txtDireccion.Text,
-                    Telefonos = txtTelefono.Text
+                    Telefonos = txtTelefono.Text,
+                    LocalidadId = (int)cboLocalidades.SelectedValue
                 };
                 await clienteService.AddAsync(cliente);
             }
@@ -82,7 +97,12 @@ namespace KioscoInformaticoDesktop.Views
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            clienteCurrent = null;
+            txtNombre.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            cboLocalidades.SelectedIndex = 0;
+            tabControl.SelectTab(tabPageLista);
         }
 
         private async void btnEliminar_Click(object sender, EventArgs e)
