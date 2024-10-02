@@ -4,21 +4,21 @@
 
 <h3>Editando un producto</h3>
 
-@if (productos == null)
+@if (producto == null)
 {
     <p><em>Obteniendo el producto a editar...</em></p>
 }
 else
 {
-    <EditForm Model="productos" OnValidSubmit="Guardar">
+    <EditForm Model="producto" OnValidSubmit="Guardar">
         <DataAnnotationsValidator />
 
         <div class="form-group mb-2">
             <label for="Nombre">Nombre</label>
-            <InputText id="Nombre" class="form-control" @bind-Value="productos.Nombre" />
+            <InputText id="Nombre" class="form-control" @bind-Value="producto.Nombre" />
         </div>
 
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary mb-2">Guardar</button>
         <ValidationSummary />
     </EditForm>
 }
@@ -29,16 +29,16 @@ else
 
     public int idProductoEditado { get; set; }
 
-    private Producto? productos;
+    private Producto? producto;
 
     protected override async Task OnInitializedAsync()
     {
-        productos = await ProductoService.GetByIdAsync(idProductoEditado);
+        producto = await ProductoService.GetByIdAsync(idProductoEditado);
     }
 
     private async void Guardar()
     {
-        await ProductoService.UpdateAsync(productos);
-        NavigationManager.NavigateTo("/producto");
+        await ProductoService.UpdateAsync(producto);
+        NavigationManager.NavigateTo("/productos");
     }
 }
