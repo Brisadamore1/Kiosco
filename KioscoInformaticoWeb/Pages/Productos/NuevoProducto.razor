@@ -1,0 +1,43 @@
+﻿@page "/editarproducto"
+@inject IGenericService<Producto> ProductoService
+@inject NavigationManager NavigationManager
+
+@if (producto == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <h3>Cargando un producto</h3>
+    <EditForm Model="producto" OnValidSubmit="Guardar">
+        <DataAnnotationsValidator />
+
+        <div class="form-group mb-2">
+            <label for="Nombre">Nombre</label>
+            <InputText id="Nombre" class="form-control" @bind-Value="producto.Nombre" />
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+        <ValidationSummary />
+    </EditForm>
+}
+
+@code {
+    [SupplyParameterFromQuery]
+    [Parameter]
+
+    public int idProductoEditado { get; set; }
+
+    private Producto? producto;
+
+    protected override async Task OnInitializedAsync()
+    {
+        producto = await ProductoService.GetByIdAsync(idProductoEditado);
+    }
+
+    private async void Guardar()
+    {
+        await ProductoService.UpdateAsync(producto);
+        NavigationManager.NavigateTo("/productos");
+    }
+}
