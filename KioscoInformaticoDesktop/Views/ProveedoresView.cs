@@ -17,21 +17,32 @@ namespace KioscoInformaticoDesktop.Views
     public partial class ProveedoresView : Form
     {
         IGenericService<Proveedor> proveedorService = new GenericService<Proveedor>();
+        ILocalidadService localidadService = new LocalidadService();
         BindingSource ListaProveedores = new BindingSource();
         List<Proveedor> ListaAFiltrar = new List<Proveedor>();
         Proveedor proveedorCurrent;
+
         public ProveedoresView()
         {
             InitializeComponent();
             dataGridProveedoresView.DataSource = ListaProveedores;
             CargarDatosAGrilla();
+            CargaCombo();
+            comboCondicionIva.DataSource = Enum.GetValues(typeof(CondicionIvaEnum));
+        }
+
+        private async Task CargaCombo()
+        {
+            comboCondicionIva.DataSource = await proveedorService.GetAllAsync();
+            comboCondicionIva.DisplayMember = "Nombre";
+            comboCondicionIva.ValueMember = "Id";
         }
 
         private async Task CargarDatosAGrilla()
         {
             ListaProveedores.DataSource = await proveedorService.GetAllAsync();
-            dataGridProveedoresView.Columns[6].Visible = false;
-            dataGridProveedoresView.Columns[7].Visible = false;
+           // dataGridProveedoresView.Columns[6].Visible = false;
+            //dataGridProveedoresView.Columns[7].Visible = false;
        
             ListaAFiltrar = (List<Proveedor>)ListaProveedores.DataSource;
         }
@@ -89,6 +100,7 @@ namespace KioscoInformaticoDesktop.Views
             txtDireccion.Text = proveedorCurrent.Direccion;
             txtTelefonos.Text = proveedorCurrent.Telefonos;
             txtCbu.Text = proveedorCurrent.Cbu;
+            comboCondicionIva.SelectedValue = proveedorCurrent.CondicionIva;
             tabControl.SelectTab(tabPageAgregarEditar);
         }
 

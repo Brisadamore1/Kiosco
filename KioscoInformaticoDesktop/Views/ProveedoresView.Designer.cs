@@ -35,6 +35,7 @@
             btnEditar = new FontAwesome.Sharp.IconButton();
             btnAgregar = new FontAwesome.Sharp.IconButton();
             tabPageAgregarEditar = new TabPage();
+            comboCondicionIva = new ComboBox();
             label1 = new Label();
             txtCbu = new MaskedTextBox();
             Cbu = new Label();
@@ -52,7 +53,6 @@
             label3 = new Label();
             panel1 = new Panel();
             Proveedores = new Label();
-            comboCondicionIva = new ComboBox();
             tabControl.SuspendLayout();
             tabPageLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridProveedoresView).BeginInit();
@@ -68,7 +68,7 @@
             tabControl.Location = new Point(2, 168);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(964, 307);
+            tabControl.Size = new Size(964, 317);
             tabControl.TabIndex = 3;
             // 
             // tabPageLista
@@ -165,10 +165,18 @@
             tabPageAgregarEditar.Location = new Point(4, 24);
             tabPageAgregarEditar.Name = "tabPageAgregarEditar";
             tabPageAgregarEditar.Padding = new Padding(3);
-            tabPageAgregarEditar.Size = new Size(956, 279);
+            tabPageAgregarEditar.Size = new Size(956, 289);
             tabPageAgregarEditar.TabIndex = 1;
             tabPageAgregarEditar.Text = "Agregar/Editar";
             tabPageAgregarEditar.UseVisualStyleBackColor = true;
+            // 
+            // comboCondicionIva
+            // 
+            comboCondicionIva.FormattingEnabled = true;
+            comboCondicionIva.Location = new Point(423, 173);
+            comboCondicionIva.Name = "comboCondicionIva";
+            comboCondicionIva.Size = new Size(170, 26);
+            comboCondicionIva.TabIndex = 16;
             // 
             // label1
             // 
@@ -240,7 +248,7 @@
             btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCancelar.IconSize = 30;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(453, 220);
+            btnCancelar.Location = new Point(468, 244);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(105, 39);
             btnCancelar.TabIndex = 7;
@@ -256,7 +264,7 @@
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnGuardar.IconSize = 30;
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(297, 220);
+            btnGuardar.Location = new Point(310, 247);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(105, 39);
             btnGuardar.TabIndex = 6;
@@ -349,14 +357,6 @@
             Proveedores.Size = new Size(155, 35);
             Proveedores.TabIndex = 0;
             Proveedores.Text = "Proveedores";
-            // 
-            // comboCondicionIva
-            // 
-            comboCondicionIva.FormattingEnabled = true;
-            comboCondicionIva.Location = new Point(423, 173);
-            comboCondicionIva.Name = "comboCondicionIva";
-            comboCondicionIva.Size = new Size(170, 26);
-            comboCondicionIva.TabIndex = 16;
             // 
             // ProveedoresView
             // 

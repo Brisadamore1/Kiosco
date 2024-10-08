@@ -93,8 +93,9 @@ namespace KioscoInformaticoBackend.Controllers
             {
                 return NotFound();
             }
+            producto.Eliminado = true;
 
-            _context.Productos.Remove(producto);
+            _context.Productos.Update(producto);
             await _context.SaveChangesAsync();
 
             return NoContent();

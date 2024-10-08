@@ -19,4 +19,5 @@ public partial class Compra
     public int? ProveedorId { get; set; }
 
     public virtual Proveedor? Proveedor { get; set; }
+    public bool Eliminado { get; set; } = false;
 }
