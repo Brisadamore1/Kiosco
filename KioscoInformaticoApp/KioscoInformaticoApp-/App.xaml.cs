@@ -8,7 +8,7 @@ namespace KioscoInformaticoApp_
         {
             InitializeComponent();
 
-            MainPage = new IniciarSesionView();
+            MainPage = new ProductosView();
         }
     }
 }

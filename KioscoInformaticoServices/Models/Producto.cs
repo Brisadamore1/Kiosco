@@ -12,6 +12,7 @@ public partial class Producto
     public string Nombre { get; set; } = null!;
 
     [Required(ErrorMessage = "El campo nombre es obligatorio.")]
+    [DataType(DataType.Currency)]
     [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode =true)]
     public decimal Precio { get; set; }
 
