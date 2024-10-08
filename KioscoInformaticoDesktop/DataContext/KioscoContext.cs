@@ -72,9 +72,9 @@ public partial class KioscoContext : DbContext
             entity.Property(e => e.Fecha).HasMaxLength(6);
             entity.Property(e => e.ProveedorId).HasColumnName("ProveedorID");
 
-            entity.HasOne(d => d.Proveedor).WithMany(p => p.Compras)
-                .HasForeignKey(d => d.ProveedorId)
-                .HasConstraintName("FK_Compras_Proveedores_ProveedorID");
+           //entity.HasOne(d => d.Proveedor).WithMany(p => p.Compras)
+                //.HasForeignKey(d => d.ProveedorId)
+                //.HasConstraintName("FK_Compras_Proveedores_ProveedorID");
         });
 
         modelBuilder.Entity<DetalleCompra>(entity =>
