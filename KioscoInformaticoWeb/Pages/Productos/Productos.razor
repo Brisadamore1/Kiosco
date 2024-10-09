@@ -1,5 +1,7 @@
 ﻿@page "/productos"
+@using CurrieTechnologies.Razor.SweetAlert2
 @inject IGenericService<Producto> ProductoService
+@inject SweetAlertService SweetAlert
 
 <HeaderPage TitlePage="Productos"/>
 
@@ -17,6 +19,7 @@ else
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +32,9 @@ else
                     <td>
                         <a href="/editarproducto?IdProductoEditado=@producto.Id">Editar</a>
                     </td>
+                     <td>  
+                        <button title="Eliminar" class="btn btn-danger" @onclick="@(()=>Eliminar
+                            (producto))">Eliminar</button></td>
                 </tr>
             }
         </tbody>
@@ -41,5 +47,24 @@ else
     protected override async Task OnInitializedAsync()
     {
         productos = await ProductoService.GetAllAsync();
+    }
+
+    private async void Eliminar(Producto producto)
+    {
+        SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = "Borrando Producto",
+                Text = $"¿Está seguro que desea borrar el producto {producto.Nombre}",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Si, quiero borrarlo!",
+                CancelButtonText = "No, espera"
+            });
+        if (respuesta.IsConfirmed)
+        {
+            await ProductoService.DeleteAsync(producto.Id);
+            productos = await ProductoService.GetAllAsync();
+            StateHasChanged();
+        }
     }
 }
