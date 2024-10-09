@@ -1,4 +1,4 @@
-﻿@page "/nuevoproducto"
+﻿@page "/editarproducto"
 @inject IGenericService<Producto> ProductoService
 @inject NavigationManager NavigationManager
 
@@ -14,7 +14,7 @@ else
     <EditForm Model="producto" OnValidSubmit="GuardarProducto">
         <DataAnnotationsValidator />
 
-        <label class="form-label mb-2" for="txtLocalidad">producto:</label>
+        <label class="form-label mb-2" for="txtLocalidad">Nombre:</label>
         <InputText class="form-control mb-2" type="text" @bind-Value="producto.Nombre" />
 
         <ValidationSummary />

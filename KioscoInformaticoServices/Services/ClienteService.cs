@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace KioscoInformaticoServices.Services
 {
-    public class ProductoService : GenericService<Producto>, IProductoService
+    public class ClienteService : GenericService<Cliente>, IClienteService
     {
-        public async Task<List<Producto>?> GetAllInOfferAsync()
+        public async Task<List<Cliente>?> GetAllAsync(string? filtro)
         {
-            var response = await client.GetAsync($"{_endpoint}/getInOffer");
+            var response = await client.GetAsync($"{_endpoint}?filtro={filtro}");
             var content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
             {
                 throw new ApplicationException(content?.ToString());
             }
-            return JsonSerializer.Deserialize<List<Producto>>(content, options); ;
+            return JsonSerializer.Deserialize<List<Cliente>>(content, options); ;
         }
 
     }

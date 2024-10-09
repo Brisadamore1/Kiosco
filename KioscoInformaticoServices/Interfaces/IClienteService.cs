@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace KioscoInformaticoServices.Interfaces
 {
-    public interface IProductoService : IGenericService<Producto>
+    public interface IClienteService : IGenericService<Cliente>
     {
-        public Task<List<Producto>?> GetAllInOfferAsync();
+        public Task<List<Cliente>?> GetAllAsync(string? filtro);
     }
 }
