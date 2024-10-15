@@ -13,26 +13,29 @@ using System.Windows.Forms;
 
 namespace KioscoInformaticoDesktop.ViewReports
 {
-    public partial class LocalidadesViewReports : Form
+    public partial class LocalidadesViewReport : Form
     {
-        ReportViewer reporte;
+        ReportViewer reporte = new ReportViewer();
         ILocalidadService localidadService = new LocalidadService();
-        public LocalidadesViewReports()
+        public LocalidadesViewReport()
         {
             InitializeComponent();
-            reporte = new ReportViewer();
+           
 
             reporte.Dock = DockStyle.Fill;
 
             Controls.Add(reporte);
         }
 
-        private async void LocalidadesViewReports_Load(object sender, EventArgs e)
+        private async void LocalidadesViewReport_Load(object sender, EventArgs e)
         {
             reporte.LocalReport.ReportEmbeddedResource = "KioscoInformaticoDesktop.Reports.LocalidadesReport.rdlc";
             var localidades = await localidadService.GetAllAsync();
             reporte.LocalReport.DataSources.Add(new ReportDataSource("DSLocalidades", localidades));
             reporte.SetDisplayMode(DisplayMode.PrintLayout);
+            //definimos zoom al 100%
+            reporte.ZoomMode = ZoomMode.Percent;
+            reporte.ZoomPercent = 100;
             reporte.RefreshReport();
         }
     }

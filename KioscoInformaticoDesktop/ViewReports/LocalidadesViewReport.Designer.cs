@@ -1,6 +1,6 @@
 ﻿namespace KioscoInformaticoDesktop.ViewReports
 {
-    partial class LocalidadesViewReports
+    partial class LocalidadesViewReport
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,15 @@
         {
             SuspendLayout();
             // 
-            // LocalidadesViewReports
+            // LocalidadesViewReport
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "LocalidadesViewReports";
-            Text = "LocalidadesViewReports";
-            Load += LocalidadesViewReports_Load;
+            Name = "LocalidadesViewReport";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "LocalidadesViewReport";
+            Load += LocalidadesViewReport_Load;
             ResumeLayout(false);
         }
 

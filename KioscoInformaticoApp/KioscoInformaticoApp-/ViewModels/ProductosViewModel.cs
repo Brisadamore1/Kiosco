@@ -61,12 +61,12 @@ namespace KioscoInformaticoApp_.ViewModels
         }
 
         public Command ObtenerProductosCommand { get; }
-        public Command FiltrarProductoCommand { get; }
+        public Command FiltrarProductosCommand { get; }
 
         public ProductosViewModel()
         {
             ObtenerProductosCommand = new Command(async () => await ObtenerProductos());
-            FiltrarProductoCommand = new Command(async () => await FiltrarProducto());
+            FiltrarProductosCommand = new Command(async () => await FiltrarProducto());
             ObtenerProductos();
         }
 
