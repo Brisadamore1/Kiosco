@@ -1,4 +1,4 @@
-﻿@page "/nuevocliente"
+﻿@page "/nuevoeditarcliente"
 @inject IClienteService ClienteService
 @inject ILocalidadService LocalidadService
 @inject NavigationManager NavigationManager
@@ -59,7 +59,7 @@ else
     {
         if (idClienteEditado != 0)
         {
-            cliente = await ClienteService.GetByIdAsync(idClienteEditado);
+            cliente = await ClienteService.GetByIdAsync(idClienteEditado) ?? new Cliente();
         }
         else
         {

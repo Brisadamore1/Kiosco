@@ -20,7 +20,7 @@ else
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Direccion</th>
-                <th>Telefono</th>
+                <th>Localidad</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -32,9 +32,9 @@ else
                     <td>@cliente.Id</td>
                     <td>@cliente.Nombre</td>
                     <td>@cliente.Direccion</td>
-                    <td>@cliente.Telefonos</td>
+                    <td>@cliente.Localidad.Nombre</td>
                     <td>
-                        <a href="/editarcliente?IdClienteEditado=@cliente.Id">Editar</a>
+                        <a href="/nuevoeditarcliente?IdClienteEditado=@cliente.Id">Editar</a>
                     </td>
                      <td>  
                         <button title="Eliminar" class="btn btn-danger" @onclick="@(()=>Eliminar
@@ -81,6 +81,6 @@ else
     }
     private void AgregarCliente(MouseEventArgs e)
     {
-        NavigationManager.NavigateTo("/nuevocliente");
+        NavigationManager.NavigateTo("/nuevoeditarcliente");
     }
 }
