@@ -16,7 +16,7 @@ public partial class Cliente
     public string Telefonos { get; set; } = null!;
 
     public DateTime FechaNacimiento { get; set; }
-
+    [Required(ErrorMessage = "El campo localidad es obligatorio.")]
     public int? LocalidadId { get; set; }
 
     public virtual Localidad? Localidad { get; set; }
