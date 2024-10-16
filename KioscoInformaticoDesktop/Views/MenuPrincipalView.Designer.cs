@@ -39,6 +39,7 @@
             ItemMenuSalirDelSistema = new FontAwesome.Sharp.IconMenuItem();
             iconMenuItem4 = new FontAwesome.Sharp.IconMenuItem();
             localidadesToolStripMenuItem = new ToolStripMenuItem();
+            clientesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -137,13 +138,13 @@
             ItemMenuSalirDelSistema.IconSize = 30;
             ItemMenuSalirDelSistema.ImageScaling = ToolStripItemImageScaling.None;
             ItemMenuSalirDelSistema.Name = "ItemMenuSalirDelSistema";
-            ItemMenuSalirDelSistema.Size = new Size(194, 36);
+            ItemMenuSalirDelSistema.Size = new Size(191, 36);
             ItemMenuSalirDelSistema.Text = "Salir del sistema";
             ItemMenuSalirDelSistema.Click += ItemMenuSalirDelSistema_Click;
             // 
             // iconMenuItem4
             // 
-            iconMenuItem4.DropDownItems.AddRange(new ToolStripItem[] { localidadesToolStripMenuItem });
+            iconMenuItem4.DropDownItems.AddRange(new ToolStripItem[] { localidadesToolStripMenuItem, clientesToolStripMenuItem });
             iconMenuItem4.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             iconMenuItem4.IconChar = FontAwesome.Sharp.IconChar.List12;
             iconMenuItem4.IconColor = Color.Black;
@@ -158,6 +159,13 @@
             localidadesToolStripMenuItem.Size = new Size(180, 22);
             localidadesToolStripMenuItem.Text = "Localidades";
             localidadesToolStripMenuItem.Click += localidadesToolStripMenuItem_Click;
+            // 
+            // clientesToolStripMenuItem
+            // 
+            clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            clientesToolStripMenuItem.Size = new Size(180, 22);
+            clientesToolStripMenuItem.Text = "Clientes";
+            clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // MenuPrincipalView
             // 
@@ -193,5 +201,6 @@
         private FontAwesome.Sharp.IconMenuItem ItemMenuProveedores;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem4;
         private ToolStripMenuItem localidadesToolStripMenuItem;
+        private ToolStripMenuItem clientesToolStripMenuItem;
     }
 }
