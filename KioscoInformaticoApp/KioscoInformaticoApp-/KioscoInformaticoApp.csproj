@@ -70,6 +70,9 @@
 	  <MauiXaml Update="View\IniciarSesionView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\ProductosEnOfertaView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\ProductosView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

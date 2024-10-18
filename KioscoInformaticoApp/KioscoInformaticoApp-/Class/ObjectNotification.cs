@@ -8,19 +8,16 @@ using System.Threading.Tasks;
 
 namespace KioscoInformaticoApp_.Class
 {
+    // La clase ObjectNotification es una clase abstracta que implementa la interfaz INotifyPropertyChanged. Esta clase sirve como base para otras clases que necesitarán notificar cuando alguna de sus propiedades cambien.
     public abstract class ObjectNotification : INotifyPropertyChanged
     {
+        /* Clase abstracta ObjectNotification: Esta es una clase abstracta, lo que significa que no se puede instanciar directamente, pero otras clases pueden heredar de ella.
+        El propósito principal de esta clase es proveer una implementación común del mecanismo de notificación de cambio de propiedades para cualquier clase que herede de ella. */
         public event PropertyChangedEventHandler PropertyChanged;
 
         //CallerMemberName nos devuelve el nombre de la propiedad que fue modificada
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            /*Este código que comprueba si un valor es nulo se puede hacer
-            * con una sola linea con la forma ?.Invoke
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }*/
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
