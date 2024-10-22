@@ -16,6 +16,9 @@
                 <TablixColumn>
                   <Width>3.9025cm</Width>
                 </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
@@ -109,12 +112,42 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Direccion">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Direccion.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Direccion</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -127,10 +160,11 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <DataSetName>DSCLientes</DataSetName>
             <Top>0.48189cm</Top>
             <Left>1.35264cm</Left>
             <Height>0.83812cm</Height>
-            <Width>9.62716cm</Width>
+            <Width>12.12715cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -150,7 +184,7 @@
         </Style>
       </Rectangle>
     </ReportItems>
-    <Height>1.08577in</Height>
+    <Height>1.08578in</Height>
     <Style />
   </Body>
   <Width>6.51425in</Width>
@@ -305,11 +339,41 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox5</rd:DefaultName>
-          <Top>2.19145cm</Top>
+          <Top>2.17381cm</Top>
           <Left>9.54987cm</Left>
           <Height>0.65581cm</Height>
           <Width>2.42063cm</Width>
           <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox8">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Direccion</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox5</rd:DefaultName>
+          <Top>2.19145cm</Top>
+          <Left>12.455cm</Left>
+          <Height>0.65581cm</Height>
+          <Width>2.42063cm</Width>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -333,7 +397,7 @@
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Line Name="Line2">
-          <Top>0.45883cm</Top>
+          <Top>0.45882cm</Top>
           <Left>1.07834cm</Left>
           <Height>0cm</Height>
           <Width>14.35333cm</Width>
@@ -358,7 +422,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.79961cm</Top>
+          <Top>0.7996cm</Top>
           <Left>6.79662cm</Left>
           <Height>0.6cm</Height>
           <Width>3.87583cm</Width>
@@ -417,6 +481,10 @@
         <Field Name="Telefonos">
           <DataField>Telefonos</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Direccion">
+          <DataField>Direccion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

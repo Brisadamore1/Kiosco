@@ -40,6 +40,7 @@
             iconMenuItem4 = new FontAwesome.Sharp.IconMenuItem();
             localidadesToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
+            iconMenuItem5 = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,6 +55,7 @@
             // 
             // iconMenuItem1
             // 
+            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { iconMenuItem5 });
             iconMenuItem1.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.House;
             iconMenuItem1.IconColor = Color.Black;
@@ -156,16 +158,26 @@
             // localidadesToolStripMenuItem
             // 
             localidadesToolStripMenuItem.Name = "localidadesToolStripMenuItem";
-            localidadesToolStripMenuItem.Size = new Size(180, 22);
+            localidadesToolStripMenuItem.Size = new Size(148, 22);
             localidadesToolStripMenuItem.Text = "Localidades";
             localidadesToolStripMenuItem.Click += localidadesToolStripMenuItem_Click;
             // 
             // clientesToolStripMenuItem
             // 
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(180, 22);
+            clientesToolStripMenuItem.Size = new Size(148, 22);
             clientesToolStripMenuItem.Text = "Clientes";
             clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
+            // 
+            // iconMenuItem5
+            // 
+            iconMenuItem5.IconChar = FontAwesome.Sharp.IconChar.MoneyBill;
+            iconMenuItem5.IconColor = Color.Black;
+            iconMenuItem5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuItem5.Name = "iconMenuItem5";
+            iconMenuItem5.Size = new Size(180, 22);
+            iconMenuItem5.Text = "Ventas";
+            iconMenuItem5.Click += iconMenuItem5_Click;
             // 
             // MenuPrincipalView
             // 
@@ -202,5 +214,6 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuItem4;
         private ToolStripMenuItem localidadesToolStripMenuItem;
         private ToolStripMenuItem clientesToolStripMenuItem;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem5;
     }
 }

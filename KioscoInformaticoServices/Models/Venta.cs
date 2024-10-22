@@ -21,4 +21,7 @@ public partial class Venta
     public virtual Cliente Cliente { get; set; } = null!;
 
     public bool Eliminado { get; set; } = false;
+
+    public virtual ICollection<DetalleVenta> DetallesVenta { get; set; } = new HashSet<DetalleVenta>();
+
 }
