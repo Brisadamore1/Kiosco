@@ -11,7 +11,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.97924cm</Height>
+              <Height>1.18207cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -33,8 +33,8 @@
                           </Paragraphs>
                           <rd:DefaultName>Id</rd:DefaultName>
                           <Left>0.37369cm</Left>
-                          <Height>0.97924cm</Height>
-                          <Width>2.5cm</Width>
+                          <Height>0.60882cm</Height>
+                          <Width>2.07667cm</Width>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -61,8 +61,8 @@
                           </Paragraphs>
                           <rd:DefaultName>Nombre</rd:DefaultName>
                           <Left>5.40078cm</Left>
-                          <Height>0.97924cm</Height>
-                          <Width>8.7177cm</Width>
+                          <Height>0.60882cm</Height>
+                          <Width>7.18312cm</Width>
                           <ZIndex>1</ZIndex>
                           <Style>
                             <Border>
@@ -103,7 +103,7 @@
         <DataSetName>DSLocalidades</DataSetName>
         <Top>0.31433cm</Top>
         <Left>1.07834cm</Left>
-        <Height>0.97924cm</Height>
+        <Height>1.18207cm</Height>
         <Width>14.35333cm</Width>
         <Style>
           <Border>

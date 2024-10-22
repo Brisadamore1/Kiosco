@@ -1,4 +1,5 @@
-﻿using KioscoInformaticoApp_.Class;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using KioscoInformaticoApp_.Class;
 using KioscoInformaticoServices.Models;
 using KioscoInformaticoServices.Services;
 using System;
@@ -67,25 +68,22 @@ namespace KioscoInformaticoApp_.ViewModels
 		}
         private List<Producto>? productosListToFilter;
 
-        //Esto es para el activity start, genera el circulo cuando esta cargando. Es un indicador de actividad cuando está iniciada.
-        private bool activityStart;
-
-        public bool ActivityStart
-        {
-            get { return activityStart; }
-            set { activityStart = value;
-                OnPropertyChanged();
-            }
-        }
-
         public Command ObtenerProductosCommand { get; }
         public Command FiltrarProductosCommand { get; }
+
+        public Command AgregarProductosCommand { get; }
 
         public ProductosViewModel()
         {
             ObtenerProductosCommand = new Command(async () => await ObtenerProductos());
             FiltrarProductosCommand = new Command(async () => await FiltrarProducto());
+            AgregarProductosCommand = new Command(async () => await AgregarProducto());
             ObtenerProductos();
+        }
+
+        private async Task AgregarProducto()
+        {
+            WeakReferenceMessenger.Default.Send(new Message("AgregarProducto"));
         }
 
         private async Task FiltrarProducto()
@@ -96,14 +94,13 @@ namespace KioscoInformaticoApp_.ViewModels
             //productoslisttofilter es la lista original, siempre queda llena y productos siempre va cambiando. Es el resultado del filtro de la lista original.
         }
 
-        private async Task ObtenerProductos()
+        public async Task ObtenerProductos()
         {
            FilterProducts = string.Empty;
-           ActivityStart = true;
+           IsRefreshing = true;
            productosListToFilter = await productoService.GetAllAsync();
-
            Productos = new ObservableCollection<Producto>(productosListToFilter);
-           ActivityStart = false;
+           IsRefreshing = false;
 
             //Llega la lista y se almacena en productosListToFilter es una variable temporal.
         }

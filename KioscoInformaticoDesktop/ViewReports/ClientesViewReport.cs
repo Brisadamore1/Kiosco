@@ -30,7 +30,7 @@ namespace KioscoInformaticoDesktop.ViewReports
         {
             reporte.LocalReport.ReportEmbeddedResource = "KioscoInformaticoDesktop.Reports.ClientesReport.rdlc";
             var clientes = await clienteService.GetAllAsync();
-            reporte.LocalReport.DataSources.Add(new ReportDataSource("DSClientes", clientes));
+            reporte.LocalReport.DataSources.Add(new ReportDataSource("DSCLientes", clientes));
             reporte.SetDisplayMode(DisplayMode.PrintLayout);
             //definimos zoom al 100%
             reporte.ZoomMode = ZoomMode.Percent;

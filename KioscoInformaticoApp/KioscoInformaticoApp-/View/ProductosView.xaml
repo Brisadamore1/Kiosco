@@ -4,30 +4,45 @@
              xmlns:viewModels="clr-namespace:KioscoInformaticoApp_.ViewModels"
              x:Class="KioscoInformaticoApp_.View.ProductosView"
              Title="ProductosView">
+    
     <ContentPage.BindingContext>
         <viewModels:ProductosViewModel/>
          </ContentPage.BindingContext>
+    
+    <ScrollView HeightRequest="300" HorizontalOptions="Center">
     <VerticalStackLayout>
-        <Label 
-            Text="Lista de productos"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" 
-            FontSize="Header"/>
-        
-        <Entry Placeholder="Buscar productos..."
+            <Frame 
+            Padding="5"
+            BorderColor="White"
+            CornerRadius="20"
+            BackgroundColor="Beige">    
+                <Label 
+                Text="Lista de productos"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                FontSize="Large"
+                TextColor="Black"
+                FontFamily="Comic Sans MS"
+                FontAttributes="Bold"
+    />
+            </Frame>
+
+            <Entry Placeholder="Buscar productos..."
                Text="{Binding FilterProducts}"
                HorizontalOptions="Center"
                VerticalOptions="Center"
+               Margin="0,20,0,0"
                />
 
         <ActivityIndicator IsRunning="{Binding ActivityStart}"/>
-        <ScrollView HeightRequest="300" HorizontalOptions="Center">
+        
             <ListView 
-                      ItemsSource="{Binding Productos}"
-                      SelectionMode="Single"
-                      IsPullToRefreshEnabled="True"
-                      RefreshCommand="{Binding ObtenerProductosCommand}"
-                     >
+                 ItemsSource="{Binding Productos}"
+                 SelectionMode="Single"
+                 IsPullToRefreshEnabled="True"
+                 RefreshCommand="{Binding ObtenerProductosCommand}"
+                 IsRefreshing="{Binding IsRefreshing}">
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Nombre}"
@@ -35,6 +50,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </ScrollView>
+        
+        <Button Text="Agregar producto"
+        Command="{Binding AgregarProductoCommand}"
+        HorizontalOptions="Center"/>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

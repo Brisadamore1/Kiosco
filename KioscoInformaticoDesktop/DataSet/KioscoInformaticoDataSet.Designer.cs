@@ -716,7 +716,7 @@ namespace KioscoInformaticoDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DSClientesRow AddDSClientesRow(int Id, string Nombre, string Telefonos) {
+            public DSClientesRow AddDSClientesRow(int Id, string Nombre, int Telefonos) {
                 DSClientesRow rowDSClientesRow = ((DSClientesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -756,7 +756,7 @@ namespace KioscoInformaticoDesktop.DataSet {
                 base.Columns.Add(this.columnId);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
-                this.columnTelefonos = new global::System.Data.DataColumn("Telefonos", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTelefonos = new global::System.Data.DataColumn("Telefonos", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTelefonos);
             }
             
@@ -1294,10 +1294,10 @@ namespace KioscoInformaticoDesktop.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Telefonos {
+            public int Telefonos {
                 get {
                     try {
-                        return ((string)(this[this.tableDSClientes.TelefonosColumn]));
+                        return ((int)(this[this.tableDSClientes.TelefonosColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'Telefonos\' de la tabla \'DSClientes\' es DBNull.", e);

@@ -1,4 +1,6 @@
-﻿using KioscoInformaticoApp_.View;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using KioscoInformaticoApp_.Class;
+using KioscoInformaticoApp_.View;
 
 namespace KioscoInformaticoApp_
 {
@@ -8,8 +10,10 @@ namespace KioscoInformaticoApp_
         {
             InitializeComponent();
 
-            //MainPage = new ProductosView();
-            MainPage = new ProductosEnOfertaView();
+            MainPage = new NavigationPage(new IniciarSesionView());
+            //MainPage = new ProductosEnOfertaView();
+
         }
+
     }
 }
