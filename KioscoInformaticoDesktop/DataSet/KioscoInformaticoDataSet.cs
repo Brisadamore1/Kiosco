@@ -42,5 +42,26 @@ namespace KioscoInformaticoDesktop.DataSet
 {
 }
 
-public partial class KioscoInformaticoDataSet {
+namespace KioscoInformaticoDesktop.DataSet
+{
+}
+
+namespace KioscoInformaticoDesktop.DataSet
+{
+}
+
+namespace KioscoInformaticoDesktop.DataSet
+{
+}
+
+namespace KioscoInformaticoDesktop.DataSet
+{
+}
+
+namespace KioscoInformaticoDesktop.DataSet
+{
+}
+
+namespace KioscoInformaticoDesktop.DataSet
+{
 }

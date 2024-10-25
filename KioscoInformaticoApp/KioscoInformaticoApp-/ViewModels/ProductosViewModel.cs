@@ -8,15 +8,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace KioscoInformaticoApp_.ViewModels
 {
-    //Productos view model hereda del object notification que es el que tiene el OnPropertyChanged (En propiedad cambiada)
-
-    //OnPropertyChanged es un método comúnmente utilizado en aplicaciones que implementan el patrón MVVM (Model-View-ViewModel) para notificar a la vista que una propiedad ha cambiado de valor. 
-
-    //Esto es crucial para la vinculación de datos (data binding), ya que permite que la interfaz de usuario se actualice automáticamente cuando los datos en el modelo cambian.
-
     public class ProductosViewModel : ObjectNotification
     {
         //El view model necesita tambien obtener los datos y es necesario instanciar el servicio.
@@ -37,9 +32,7 @@ namespace KioscoInformaticoApp_.ViewModels
             }
             //OnPropertyChanged: Este método se llama dentro del set de la propiedad, y dispara el evento PropertyChanged. Esto notifica a cualquier observador (como la UI) que la propiedad ha cambiado.
         }
-        //"setear" se refiere a la acción de asignar o establecer un valor a una variable, propiedad, o configuración. 
-
-        //bug del activity indicator que queda corriendo todo el tiempo se soluciona con esto.
+        
         //https://chatgpt.com/share/9ab527ab-34a6-426c-b7a7-362c38e460a7
         
         private bool _isRefreshing;
@@ -86,10 +79,11 @@ namespace KioscoInformaticoApp_.ViewModels
             WeakReferenceMessenger.Default.Send(new Message("AgregarProducto"));
         }
 
-        private async Task FiltrarProducto()
+        public async Task FiltrarProducto()
         {
             var productosFiltrados = productosListToFilter.Where(p => p.Nombre.ToUpper().Contains(filterProducts.ToUpper()));
             Productos = new ObservableCollection<Producto>(productosFiltrados);
+            
 
             //productoslisttofilter es la lista original, siempre queda llena y productos siempre va cambiando. Es el resultado del filtro de la lista original.
         }
@@ -99,10 +93,20 @@ namespace KioscoInformaticoApp_.ViewModels
            FilterProducts = string.Empty;
            IsRefreshing = true;
            productosListToFilter = await productoService.GetAllAsync();
-           Productos = new ObservableCollection<Producto>(productosListToFilter);
+            Productos = new ObservableCollection<Producto>(productosListToFilter);
            IsRefreshing = false;
 
             //Llega la lista y se almacena en productosListToFilter es una variable temporal.
         }
     }
 }
+
+//Productos view model hereda del object notification que es el que tiene el OnPropertyChanged (En propiedad cambiada)
+
+//OnPropertyChanged es un método comúnmente utilizado en aplicaciones que implementan el patrón MVVM (Model-View-ViewModel) para notificar a la vista que una propiedad ha cambiado de valor. 
+
+//Esto es crucial para la vinculación de datos (data binding), ya que permite que la interfaz de usuario se actualice automáticamente cuando los datos en el modelo cambian.
+
+//"setear" se refiere a la acción de asignar o establecer un valor a una variable, propiedad, o configuración. 
+
+//bug del activity indicator que queda corriendo todo el tiempo se soluciona con esto.

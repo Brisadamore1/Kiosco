@@ -11,7 +11,7 @@ public partial class DetalleVenta
     public int VentaId { get; set; }
 
     public int ProductoId { get; set; }
-    public virtual Producto Producto { get; set; } = null!;
+    public virtual Producto? Producto { get; set; } = null!;
 
     public decimal PrecioUnitario { get; set; }
 
@@ -20,7 +20,7 @@ public partial class DetalleVenta
     [NotMapped]
     public decimal Subtotal => Cantidad * PrecioUnitario;
 
-    public virtual Venta Venta { get; set; } = null!;
+    public virtual Venta? Venta { get; set; } = null!;
     public bool Eliminado { get; set; } = false;
 
 }
