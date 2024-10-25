@@ -33,6 +33,7 @@
         <ScrollView HeightRequest="300" HorizontalOptions="Center">
             <ListView 
                      ItemsSource="{Binding Productos}"
+                     SelectedItem="{Binding SelectedProduct}"
                      SelectionMode="Single"
                      IsPullToRefreshEnabled="True"
                      RefreshCommand="{Binding ObtenerProductosCommand}"
@@ -64,7 +65,13 @@
                 <Button Text="Agregar producto"
                     Command="{Binding AgregarProductosCommand}"
                     HorizontalOptions="Center"
-                    BackgroundColor="Beige"
+                    BackgroundColor="LightPink"
+                    TextColor="Black"
+                    Margin="40"/>
+                <Button Text="Editar producto"
+                    Command="{Binding EditarProductoCommand}"
+                    HorizontalOptions="Center"
+                    BackgroundColor="LightPink"
                     TextColor="Black"
                     Margin="40"/>
 

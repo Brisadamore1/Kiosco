@@ -30,6 +30,10 @@ public partial class IniciarSesionView : ContentPage
         {
             await Navigation.PushAsync(new AddEditProductoView());
         }
+        if (mensaje.Value == "EditarProducto")
+        {
+            await Navigation.PushAsync(new AddEditProductoView(mensaje.ProductoAEditar));
+        }
         if (mensaje.Value == "CerrarVentana")
         {
             await Navigation.PopAsync();

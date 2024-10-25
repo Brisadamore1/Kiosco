@@ -45,6 +45,7 @@ namespace KioscoInformaticoApp_.ViewModels
                 OnPropertyChanged();
             }
         }
+       
         //Necesitamos almacenar la lista de productos original para poder filtrarla
 
         //Normalmente los observables collection son inmutables, es decir no le podemos hacer cambios. Por eso creamos una lista, este objeto contiene el where 
@@ -61,17 +62,42 @@ namespace KioscoInformaticoApp_.ViewModels
 		}
         private List<Producto>? productosListToFilter;
 
+        private Producto selectedProduct;
+
+        public Producto SelectedProduct
+        {
+            get { return selectedProduct; }
+            set { selectedProduct = value;
+
+                OnPropertyChanged();
+                EditarProductoCommand.ChangeCanExecute();
+            }
+        }
+
+
         public Command ObtenerProductosCommand { get; }
         public Command FiltrarProductosCommand { get; }
 
         public Command AgregarProductosCommand { get; }
+        public Command EditarProductoCommand { get; }
 
         public ProductosViewModel()
         {
             ObtenerProductosCommand = new Command(async () => await ObtenerProductos());
             FiltrarProductosCommand = new Command(async () => await FiltrarProducto());
             AgregarProductosCommand = new Command(async () => await AgregarProducto());
+            EditarProductoCommand = new Command(async (obj) => await EditarProducto(), PermitirEditar);
             ObtenerProductos();
+        }
+
+        private bool PermitirEditar(object arg)
+        {
+            return SelectedProduct != null;
+        }
+
+        private async Task EditarProducto()
+        {
+            WeakReferenceMessenger.Default.Send(new Message("EditarProducto") { ProductoAEditar= selectedProduct});
         }
 
         private async Task AgregarProducto()
