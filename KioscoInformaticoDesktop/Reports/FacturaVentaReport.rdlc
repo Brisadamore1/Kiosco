@@ -6,12 +6,12 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>16.50937cm</Width>
+              <Width>16.39945cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.05361cm</Height>
+              <Height>0.92514cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -25,17 +25,19 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!ProductoNombre.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Comic Sans MS</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>ProductoNombre</rd:DefaultName>
-                          <Top>0.29104cm</Top>
+                          <Top>0.15403cm</Top>
                           <Left>0.29986cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>2.89688cm</Width>
+                          <Width>3.21438cm</Width>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -54,17 +56,20 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!PrecioUnitario.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Comic Sans MS</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>PrecioUnitario</rd:DefaultName>
-                          <Top>0.26458cm</Top>
-                          <Left>4.4009cm</Left>
+                          <Top>0.15403cm</Top>
+                          <Left>4.65103cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>2.5cm</Width>
+                          <Width>2.79985cm</Width>
                           <ZIndex>1</ZIndex>
                           <Style>
                             <Border>
@@ -84,15 +89,17 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Cantidad.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Comic Sans MS</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Cantidad</rd:DefaultName>
-                          <Top>0.26458cm</Top>
-                          <Left>8.60778cm</Left>
+                          <Top>0.15403cm</Top>
+                          <Left>9.26924cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
                           <ZIndex>2</ZIndex>
@@ -114,15 +121,18 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Subtotal.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Comic Sans MS</FontFamily>
+                                    <Format>0.00;(0.00)</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Subtotal</rd:DefaultName>
-                          <Top>0.26458cm</Top>
-                          <Left>12.60299cm</Left>
+                          <Top>0.15403cm</Top>
+                          <Left>13.50258cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
                           <ZIndex>3</ZIndex>
@@ -144,6 +154,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -163,10 +174,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DSDetallesVenta</DataSetName>
-        <Top>0.16347cm</Top>
-        <Left>0.51717cm</Left>
-        <Height>1.05361cm</Height>
-        <Width>16.50937cm</Width>
+        <Top>0.14111cm</Top>
+        <Left>0.13075cm</Left>
+        <Height>0.92514cm</Height>
+        <Width>16.39945cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -174,13 +185,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.56053in</Height>
+    <Height>0.53089in</Height>
     <Style />
   </Body>
-  <Width>6.95175in</Width>
+  <Width>6.62601in</Width>
   <Page>
     <PageHeader>
-      <Height>3.61308cm</Height>
+      <Height>3.47197cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -193,6 +204,7 @@
                 <TextRun>
                   <Value>FACTURA </Value>
                   <Style>
+                    <FontStyle>Italic</FontStyle>
                     <FontFamily>Comic Sans MS</FontFamily>
                     <FontSize>12pt</FontSize>
                   </Style>
@@ -203,7 +215,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.34078cm</Top>
-          <Left>6.7437cm</Left>
+          <Left>7.12457cm</Left>
           <Height>0.80574cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -223,16 +235,18 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>N°</Value>
-                  <Style />
+                  <Value>N°:</Value>
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.87877cm</Top>
-          <Left>0.34078cm</Left>
+          <Top>0.84349cm</Top>
+          <Left>0.38087cm</Left>
           <Height>0.6cm</Height>
           <Width>1.33583cm</Width>
           <ZIndex>1</ZIndex>
@@ -254,7 +268,10 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Sum(Fields!Id.Value, "DSVentas")</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                    <Format>0000000#</Format>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -262,7 +279,7 @@
           </Paragraphs>
           <rd:DefaultName>Id</rd:DefaultName>
           <Top>0.87877cm</Top>
-          <Left>2.56328cm</Left>
+          <Left>2.17685cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>2</ZIndex>
@@ -284,15 +301,17 @@
               <TextRuns>
                 <TextRun>
                   <Value>Cliente:</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>1.98092cm</Top>
-          <Left>0.34078cm</Left>
+          <Top>1.65516cm</Top>
+          <Left>0.38087cm</Left>
           <Height>0.6cm</Height>
           <Width>1.83854cm</Width>
           <ZIndex>3</ZIndex>
@@ -314,15 +333,17 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!ClienteNombre.Value, "DSVentas")</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ClienteNombre</rd:DefaultName>
-          <Top>2.0253cm</Top>
-          <Left>3.30821cm</Left>
+          <Top>1.66426cm</Top>
+          <Left>3.3483cm</Left>
           <Height>0.6cm</Height>
           <Width>2.20896cm</Width>
           <ZIndex>4</ZIndex>
@@ -344,17 +365,19 @@
               <TextRuns>
                 <TextRun>
                   <Value>Fecha:</Value>
-                  <Style />
+                  <Style>
+                    <FontStyle>Italic</FontStyle>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.34078cm</Top>
-          <Left>11.74104cm</Left>
-          <Height>0.6cm</Height>
-          <Width>1.78891cm</Width>
+          <Left>11.64566cm</Left>
+          <Height>0.6671cm</Height>
+          <Width>1.84341cm</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
@@ -374,17 +397,20 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!Fecha.Value, "DSVentas")</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                    <Format>d</Format>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Fecha</rd:DefaultName>
-          <Top>0.34078cm</Top>
-          <Left>14.25787cm</Left>
+          <Top>0.0671cm</Top>
+          <Left>13.87144cm</Left>
           <Height>0.6cm</Height>
-          <Width>1.73271cm</Width>
+          <Width>2.5882cm</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
@@ -397,10 +423,10 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>2.80169cm</Top>
-          <Left>0.34078cm</Left>
+          <Top>2.53654cm</Top>
+          <Left>0.02083cm</Left>
           <Height>0cm</Height>
-          <Width>15.64979cm</Width>
+          <Width>16.50937cm</Width>
           <ZIndex>7</ZIndex>
           <Style>
             <Border>
@@ -409,10 +435,10 @@
           </Style>
         </Line>
         <Line Name="Line2">
-          <Top>1.83981cm</Top>
-          <Left>0.34079cm</Left>
+          <Top>3.38349cm</Top>
+          <Left>0.01046cm</Left>
           <Height>0cm</Height>
-          <Width>15.64979cm</Width>
+          <Width>16.44918cm</Width>
           <ZIndex>8</ZIndex>
           <Style>
             <Border>
@@ -428,15 +454,17 @@
               <TextRuns>
                 <TextRun>
                   <Value>Forma Pago:</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>1.11717cm</Top>
-          <Left>11.74104cm</Left>
+          <Top>0.84349cm</Top>
+          <Left>10.52149cm</Left>
           <Height>0.6cm</Height>
           <Width>2.26516cm</Width>
           <ZIndex>9</ZIndex>
@@ -458,17 +486,19 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!FormaPago.Value, "DSVentas")</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>FormaPago</rd:DefaultName>
-          <Top>1.0987cm</Top>
-          <Left>14.18259cm</Left>
+          <Top>0.87877cm</Top>
+          <Left>12.96304cm</Left>
           <Height>0.6cm</Height>
-          <Width>1.89146cm</Width>
+          <Width>3.54633cm</Width>
           <ZIndex>10</ZIndex>
           <Style>
             <Border>
@@ -480,18 +510,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Line Name="Line3">
-          <Top>3.45433cm</Top>
-          <Left>0.51717cm</Left>
-          <Height>0cm</Height>
-          <Width>15.64979cm</Width>
-          <ZIndex>11</ZIndex>
-          <Style>
-            <Border>
-              <Style>Solid</Style>
-            </Border>
-          </Style>
-        </Line>
         <Textbox Name="Textbox8">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -500,18 +518,20 @@
               <TextRuns>
                 <TextRun>
                   <Value>Producto:</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>2.8896cm</Top>
-          <Left>0.81703cm</Left>
-          <Height>0.6cm</Height>
-          <Width>1.83854cm</Width>
-          <ZIndex>12</ZIndex>
+          <Top>2.70383cm</Top>
+          <Left>0.38088cm</Left>
+          <Height>0.50327cm</Height>
+          <Width>1.83853cm</Width>
+          <ZIndex>11</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -530,18 +550,20 @@
               <TextRuns>
                 <TextRun>
                   <Value>Precio Unitario:</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>2.78377cm</Top>
-          <Left>4.91808cm</Left>
+          <Top>2.6071cm</Top>
+          <Left>4.78178cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
-          <ZIndex>13</ZIndex>
+          <Width>2.79985cm</Width>
+          <ZIndex>12</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -559,19 +581,21 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Cantidad:</Value>
-                  <Style />
+                  <Value EvaluationMode="Constant">Cantidad:</Value>
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>2.78377cm</Top>
-          <Left>9.12495cm</Left>
+          <Top>2.65148cm</Top>
+          <Left>9.79686cm</Left>
           <Height>0.6cm</Height>
           <Width>1.83854cm</Width>
-          <ZIndex>14</ZIndex>
+          <ZIndex>13</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -589,19 +613,21 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Subtotal:</Value>
-                  <Style />
+                  <Value EvaluationMode="Constant">Subtotal:</Value>
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>2.78377cm</Top>
-          <Left>13.12016cm</Left>
+          <Top>2.6071cm</Top>
+          <Left>13.63332cm</Left>
           <Height>0.6cm</Height>
           <Width>1.83854cm</Width>
-          <ZIndex>15</ZIndex>
+          <ZIndex>14</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -612,6 +638,17 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Line Name="Line3">
+          <Top>1.51405cm</Top>
+          <Height>0cm</Height>
+          <Width>16.50937cm</Width>
+          <ZIndex>15</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -620,7 +657,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.50813cm</Height>
+      <Height>1.11125cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -632,7 +669,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>IVA:</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -640,7 +679,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.335cm</Top>
-          <Left>4.68154cm</Left>
+          <Left>5.06241cm</Left>
           <Height>0.6cm</Height>
           <Width>1.33583cm</Width>
           <Style>
@@ -661,7 +700,10 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Sum(Fields!Iva.Value, "DSVentas")</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                    <Format>0.00;(0.00)</Format>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -669,7 +711,7 @@
           </Paragraphs>
           <rd:DefaultName>Iva</rd:DefaultName>
           <Top>0.32604cm</Top>
-          <Left>6.19376cm</Left>
+          <Left>6.57463cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
@@ -690,8 +732,10 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Total Factura</Value>
-                  <Style />
+                  <Value>Total Factura:</Value>
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -700,7 +744,9 @@
               <TextRuns>
                 <TextRun>
                   <Value />
-                  <Style />
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -708,7 +754,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.335cm</Top>
-          <Left>10.63466cm</Left>
+          <Left>11.01553cm</Left>
           <Height>0.6cm</Height>
           <Width>2.47354cm</Width>
           <ZIndex>2</ZIndex>
@@ -730,7 +776,10 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Sum(Fields!Total.Value, "DSVentas")</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Comic Sans MS</FontFamily>
+                    <Format>0.00;(0.00)</Format>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -738,7 +787,7 @@
           </Paragraphs>
           <rd:DefaultName>Total</rd:DefaultName>
           <Top>0.32604cm</Top>
-          <Left>13.64933cm</Left>
+          <Left>14.0302cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>3</ZIndex>

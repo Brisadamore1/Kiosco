@@ -42,19 +42,29 @@ namespace KioscoInformaticoDesktop.ViewReports
             Controls.Add(reporte);
         }
 
-        private async void FacturaVentaViewReport_Load(object sender, EventArgs e)
+        private void FacturaVentaViewReport_Load(object sender, EventArgs e)
         {
 
             reporte.LocalReport.ReportEmbeddedResource = "KioscoInformaticoDesktop.Reports.FacturaVentaReport.rdlc";
-            
 
-            var venta = new {Id = nuevaVenta.Id, Fecha= nuevaVenta.Fecha, ClienteNombre = nuevaVenta.Cliente.Nombre,Iva = nuevaVenta.Iva, FormaPago= nuevaVenta.FormaPago,Total= nuevaVenta.Total };
+
+            List<object> venta = new List<object> { new { 
+                Id = nuevaVenta.Id, 
+                Fecha = nuevaVenta.Fecha, 
+                ClienteNombre = nuevaVenta.Cliente.Nombre, 
+                Total = nuevaVenta.Total, 
+                Iva = nuevaVenta.Iva, 
+                FormaPago = nuevaVenta.FormaPago.ToString() } };
 
             var detallesVenta = nuevaVenta.DetallesVenta.Select(detalle => new 
-            {ProductoNombre = detalle.Producto.Nombre, PrecioUnitario = detalle.PrecioUnitario, Cantidad = detalle.Cantidad});
+            {ProductoNombre = detalle.Producto.Nombre, 
+                PrecioUnitario = detalle.PrecioUnitario, 
+                Cantidad = detalle.Cantidad,
+                Subtotal = detalle.Subtotal
+            });
 
             reporte.LocalReport.DataSources.Add(new ReportDataSource("DSVentas", venta));
-            reporte.LocalReport.DataSources.Add(new ReportDataSource("DSDetallesVenta", venta));
+            reporte.LocalReport.DataSources.Add(new ReportDataSource("DSDetallesVenta", detallesVenta));
             reporte.SetDisplayMode(DisplayMode.PrintLayout);
             //definimos zoom al 100%
             reporte.ZoomMode = ZoomMode.Percent;
