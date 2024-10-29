@@ -122,17 +122,14 @@ namespace KioscoInformaticoDesktop.Views
 
         private async void btnFinalizar_Click(object sender, EventArgs e)
         {
-            Venta  VentaTemp = new Venta();
-            VentaTemp.ClienteId = (int)comboBoxClientes.SelectedValue;
-            VentaTemp.FormaPago = (FormaDePagoEnum)comboBoxFormasDePago.SelectedValue;
-            VentaTemp.Fecha = DateTime.Now;
+            venta.ClienteId = (int)comboBoxClientes.SelectedValue;
+            venta.Cliente = (Cliente)comboBoxClientes.SelectedItem;
+            venta.FormaPago = (FormaDePagoEnum)comboBoxFormasDePago.SelectedValue;
+            venta.Fecha = DateTime.Now;
 
-            VentaTemp.Total = numericTotal.Value;
-            VentaTemp.Iva = venta.Total * 0.21m;
-            VentaTemp.Cliente = null;
-            VentaTemp.DetallesVenta.ToList().ForEach(dv => dv.Producto = null);
-            VentaTemp.DetallesVenta.ToList().ForEach(dv => dv.Venta = null);
-            var nuevaVenta = await ventaService.AddAsync(VentaTemp);
+            venta.Total = numericTotal.Value;
+            venta.Iva = venta.Total * 0.21m;
+            var nuevaVenta = await ventaService.AddAsync(venta);
             var facturaVentaViewReport = new FacturaVentaViewReport(nuevaVenta);
             facturaVentaViewReport.ShowDialog();
         }
