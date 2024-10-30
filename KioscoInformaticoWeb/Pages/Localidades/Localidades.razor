@@ -1,6 +1,8 @@
 ﻿@page "/localidades"
 @using CurrieTechnologies.Razor.SweetAlert2
+@using System.Diagnostics
 @inject IGenericService<Localidad> LocalidadService
+@inject ILogger<Localidades> logger
 @inject SweetAlertService SweetAlert
 
 <HeaderPage TitlePage="Localidades" />
@@ -45,6 +47,8 @@ else
     protected override async Task OnInitializedAsync()
     {
         localidades = await LocalidadService.GetAllAsync();
+        logger.LogInformation($"Localidades obtenidas {localidades?.Count}");
+      
     }
 
     private async void Eliminar(Localidad localidad)
@@ -60,6 +64,7 @@ else
             });
         if (respuesta.IsConfirmed)
         {
+            logger.LogInformation($"Borrando localidad {localidad.Nombre}");
             await LocalidadService.DeleteAsync(localidad.Id);
             localidades = await LocalidadService.GetAllAsync();
             StateHasChanged();
