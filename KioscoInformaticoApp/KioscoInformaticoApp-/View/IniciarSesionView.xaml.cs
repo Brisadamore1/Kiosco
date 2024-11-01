@@ -38,5 +38,9 @@ public partial class IniciarSesionView : ContentPage
         {
             await Navigation.PopAsync();
         }
+        if (mensaje.Value == "AbrirAppShell")
+        {
+            await Navigation.PushAsync(new KioscoShell());
+        }
     }
 }

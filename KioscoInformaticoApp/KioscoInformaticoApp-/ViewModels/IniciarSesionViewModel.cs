@@ -53,9 +53,9 @@ namespace KioscoInformaticoApp_.ViewModels
 			return !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password);
 		}
 
-        private void IniciarSesion(object obj)
+        private async void IniciarSesion(object obj)
         {
-            WeakReferenceMessenger.Default.Send(new Message("AbrirProductos"));
+		 WeakReferenceMessenger.Default.Send(new Message("AbrirAppShell"));
         }
     }
 }

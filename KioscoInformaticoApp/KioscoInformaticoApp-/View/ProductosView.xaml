@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:KioscoInformaticoApp_.ViewModels"
              x:Class="KioscoInformaticoApp_.View.ProductosView"
-             Title="ProductosView">
+             Title="ProductosView"
+             NavigationPage.HasNavigationBar="False">
    
     <ContentPage.BindingContext>
         <viewModels:ProductosViewModel/>
@@ -67,12 +68,16 @@
                     HorizontalOptions="Center"
                     BackgroundColor="LightPink"
                     TextColor="Black"
+                    WidthRequest="100"
+                    HeightRequest="40"
                     Margin="40"/>
                 <Button Text="Editar producto"
                     Command="{Binding EditarProductoCommand}"
                     HorizontalOptions="Center"
                     BackgroundColor="LightPink"
                     TextColor="Black"
+                    WidthRequest="100"
+                    HeightRequest="40"
                     Margin="40"/>
 
     </VerticalStackLayout>
