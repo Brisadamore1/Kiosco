@@ -43,6 +43,7 @@
             clientesToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
             iconToolHistoricoVentas = new FontAwesome.Sharp.IconToolStripButton();
+            iconMenuItem5 = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
@@ -58,7 +59,7 @@
             // 
             // iconMenuItem1
             // 
-            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { iconMenuVentas });
+            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { iconMenuVentas, iconMenuItem5 });
             iconMenuItem1.Font = new Font("Comic Sans MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.House;
             iconMenuItem1.IconColor = Color.Black;
@@ -205,6 +206,16 @@
             iconToolHistoricoVentas.TextImageRelation = TextImageRelation.ImageAboveText;
             iconToolHistoricoVentas.Click += iconToolHistoricoVentas_Click;
             // 
+            // iconMenuItem5
+            // 
+            iconMenuItem5.IconChar = FontAwesome.Sharp.IconChar.CartPlus;
+            iconMenuItem5.IconColor = Color.Black;
+            iconMenuItem5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuItem5.Name = "iconMenuItem5";
+            iconMenuItem5.Size = new Size(180, 22);
+            iconMenuItem5.Text = "Compras";
+            iconMenuItem5.Click += iconMenuItem5_Click_1;
+            // 
             // MenuPrincipalView
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -246,5 +257,6 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuVentas;
         private ToolStrip toolStrip1;
         private FontAwesome.Sharp.IconToolStripButton iconToolHistoricoVentas;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem5;
     }
 }
