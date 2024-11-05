@@ -12,6 +12,7 @@
     <None Remove="Reports\ClientesReport.rdlc" />
     <None Remove="Reports\FacturaCompraReport.rdlc" />
     <None Remove="Reports\FacturaVentaReport.rdlc" />
+    <None Remove="Reports\HistoricoVentasReport.rdlc" />
     <None Remove="Reports\LocalidadesReport.rdlc" />
   </ItemGroup>
 
@@ -19,6 +20,7 @@
     <EmbeddedResource Include="Reports\ClientesReport.rdlc" />
     <EmbeddedResource Include="Reports\FacturaCompraReport.rdlc" />
     <EmbeddedResource Include="Reports\FacturaVentaReport.rdlc" />
+    <EmbeddedResource Include="Reports\HistoricoVentasReport.rdlc" />
     <EmbeddedResource Include="Reports\LocalidadesReport.rdlc" />
   </ItemGroup>
 

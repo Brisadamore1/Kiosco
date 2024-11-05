@@ -32,7 +32,7 @@
             panel1 = new Panel();
             Clientes = new Label();
             dataGridVentas = new DataGridView();
-            btnAgregar = new FontAwesome.Sharp.IconButton();
+            btnImprimir = new FontAwesome.Sharp.IconButton();
             panelFiltrado = new Panel();
             btnFiltrar = new Button();
             dateTimeHasta = new DateTimePicker();
@@ -90,20 +90,21 @@
             dataGridVentas.Size = new Size(669, 207);
             dataGridVentas.TabIndex = 4;
             // 
-            // btnAgregar
+            // btnImprimir
             // 
-            btnAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAgregar.IconChar = FontAwesome.Sharp.IconChar.FileCircleCheck;
-            btnAgregar.IconColor = Color.Black;
-            btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnAgregar.IconSize = 24;
-            btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(657, 420);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(108, 31);
-            btnAgregar.TabIndex = 5;
-            btnAgregar.Text = "&Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
+            btnImprimir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileCircleCheck;
+            btnImprimir.IconColor = Color.Black;
+            btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnImprimir.IconSize = 24;
+            btnImprimir.ImageAlign = ContentAlignment.MiddleLeft;
+            btnImprimir.Location = new Point(657, 420);
+            btnImprimir.Name = "btnImprimir";
+            btnImprimir.Size = new Size(108, 31);
+            btnImprimir.TabIndex = 5;
+            btnImprimir.Text = "&Imprimir";
+            btnImprimir.UseVisualStyleBackColor = true;
+            btnImprimir.Click += btnImprimir_Click;
             // 
             // panelFiltrado
             // 
@@ -203,7 +204,7 @@
             Controls.Add(numericTotalFacturado);
             Controls.Add(checkFiltrado);
             Controls.Add(panelFiltrado);
-            Controls.Add(btnAgregar);
+            Controls.Add(btnImprimir);
             Controls.Add(dataGridVentas);
             Controls.Add(panel1);
             Name = "HistoricoVentasView";
@@ -224,7 +225,7 @@
         private Panel panel1;
         private Label Clientes;
         private DataGridView dataGridVentas;
-        private FontAwesome.Sharp.IconButton btnAgregar;
+        private FontAwesome.Sharp.IconButton btnImprimir;
         private Panel panelFiltrado;
         private CheckBox checkFiltrado;
         private DateTimePicker dateTimeHasta;
