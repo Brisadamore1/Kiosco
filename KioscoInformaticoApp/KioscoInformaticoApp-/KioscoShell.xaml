@@ -5,13 +5,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:KioscoInformaticoApp_"
     xmlns:views="clr-namespace:KioscoInformaticoApp_.View"
+    xmlns:viewsmodels="clr-namespace:KioscoInformaticoApp_.ViewModels"
     xmlns:contentviews="clr-namespace:KioscoInformaticoApp_.ContentViews"
-    Shell.FlyoutBehavior="Flyout"
+    FlyoutBehavior="Flyout"
     Title="KioscoInformaticoApp_"
      FlyoutBackgroundImage="photo.jpg"
      FlyoutBackgroundImageAspect="AspectFill"
      FlyoutHeaderBehavior="CollapseOnScroll">
 
+    <Shell.BindingContext>
+        <viewsmodels:KioscoShellViewModel/>
+    </Shell.BindingContext>
+    
     <Shell.FlyoutHeader>
         <contentviews:FlyoutHeader />
     </Shell.FlyoutHeader>
@@ -21,7 +26,7 @@
     </Shell.FlyoutFooter>
 
     <FlyoutItem Route="kiosco_app"
-                FlyoutDisplayOptions="AsMultipleItems">
+                FlyoutDisplayOptions="AsMultipleItems" x:Name="FlyoutItemsPrincipal">
         <ShellContent
             Title="Home"
             ContentTemplate="{DataTemplate local:MainPage}"
@@ -42,10 +47,15 @@
                 Title="Agregar producto"
                 Icon="dog.png"
                 ContentTemplate="{DataTemplate views:AddEditProductoView}"
-                Route="Agregar producto" />
+                Route="AgregarEditarProducto" />
         </Tab>
     </FlyoutItem>
     <MenuItem Text="Cerrar Sesión"
               IconImageSource="random.png" />
-
+    <ShellContent
+        Title="Iniciar Sesión"
+        ContentTemplate="{DataTemplate views:IniciarSesionView}"
+        Route="Login"
+        IsVisible="{Binding IsUserLogout}"
+           />
 </Shell>

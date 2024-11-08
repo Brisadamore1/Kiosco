@@ -10,7 +10,8 @@ namespace KioscoInformaticoApp_
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new IniciarSesionView());
+            //MainPage = new NavigationPage(new IniciarSesionView());
+            MainPage = new KioscoShell(); 
             //MainPage = new ProductosEnOfertaView();
 
         }

@@ -6,6 +6,7 @@ namespace KioscoInformaticoWeb.Services
     {
         private readonly IJSRuntime _jsRuntime;
         private const string UserIdKey = "firebaseUserId";
+        //
         public event Action OnChangeLogin;
 
         public FirebaseAuthService(IJSRuntime jsRuntime)
@@ -16,6 +17,16 @@ namespace KioscoInformaticoWeb.Services
         public async Task<string> SignInWithEmailPassword(string email, string password)
         {
             var userId = await _jsRuntime.InvokeAsync<string>("firebaseAuth.signInWithEmailPassword", email, password);
+            if (userId != null)
+            {
+                await _jsRuntime.InvokeVoidAsync("localStorageHelper.setItem", UserIdKey, userId);
+                OnChangeLogin?.Invoke();
+            }
+            return userId;
+        }
+        public async Task<string> createUserWithEmailAndPassword(string email, string password, string displayName)
+        {
+            var userId = await _jsRuntime.InvokeAsync<string>("firebaseAuth.createUserWithEmailAndPassword", email, password, displayName);
             if (userId != null)
             {
                 await _jsRuntime.InvokeVoidAsync("localStorageHelper.setItem", UserIdKey, userId);

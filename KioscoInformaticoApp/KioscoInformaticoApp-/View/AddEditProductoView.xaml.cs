@@ -3,9 +3,20 @@ using KioscoInformaticoServices.Models;
 
 namespace KioscoInformaticoApp_.View;
 
+
+[QueryProperty(nameof(Product), "ProductoEdit")]
 public partial class AddEditProductoView : ContentPage
 {
-	public AddEditProductoView()
+	public Producto Product
+	{
+		set
+		{
+			var producto = value;
+			var viewmodel = this.BindingContext as AddEditProductoViewModel;
+            viewmodel.EditProduct = producto;
+        }
+	}
+    public AddEditProductoView()
 	{
 		InitializeComponent();
 	}

@@ -9,76 +9,78 @@
     <ContentPage.BindingContext>
         <viewModels:ProductosViewModel/>
     </ContentPage.BindingContext>
+    
+    <Grid RowDefinitions="Auto, *, Auto, Auto">
+        <VerticalStackLayout>
+            <Frame 
+            Padding="5"
+            BorderColor="White"
+            CornerRadius="20"
+            BackgroundColor="Beige">
+                <Label 
+                        Text="Lista de productos"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" 
+                        FontSize="Large"
+                        TextColor="Black"
+                        FontAttributes="Bold" />
+            </Frame>
 
-    <VerticalStackLayout>
-        <Frame 
-        Padding="5"
-        BorderColor="White"
-        CornerRadius="20"
-        BackgroundColor="Beige">
-            <Label 
-                    Text="Lista de productos"
-                    VerticalOptions="Center" 
-                    HorizontalOptions="Center" 
-                    FontSize="Large"
-                    TextColor="Black"
-                    FontAttributes="Bold" />
-        </Frame>
+            <Entry Placeholder="Buscar productos..."
+                       Text="{Binding FilterProducts}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Margin="0,20,0,0"/>
 
-        <Entry Placeholder="Buscar productos..."
-                   Text="{Binding FilterProducts}"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Margin="0,20,0,0"/>
+            <ScrollView HeightRequest="300" HorizontalOptions="Center">
+                <ListView 
+                         ItemsSource="{Binding Productos}"
+                         SelectedItem="{Binding SelectedProduct}"
+                         SelectionMode="Single"
+                         IsPullToRefreshEnabled="True"
+                         RefreshCommand="{Binding ObtenerProductosCommand}"
+                         IsRefreshing="{Binding IsRefreshing}"
+                         HeightRequest="400">
 
-        <ScrollView HeightRequest="300" HorizontalOptions="Center">
-            <ListView 
-                     ItemsSource="{Binding Productos}"
-                     SelectedItem="{Binding SelectedProduct}"
-                     SelectionMode="Single"
-                     IsPullToRefreshEnabled="True"
-                     RefreshCommand="{Binding ObtenerProductosCommand}"
-                     IsRefreshing="{Binding IsRefreshing}"
-                     HeightRequest="400">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal"
+                                     Padding="10"
+                                     BackgroundColor="Beige"
+                                     Margin="5,5,5,0">
+                                    <Label Text="{Binding Nombre}"
+                                           FontSize="Medium"
+                                           TextColor="Black"
+                                           VerticalOptions="Center"/>
+                                    <Label Text="{Binding Precio, StringFormat='{0:N2}'}"
+                                           FontSize="Small"
+                                           TextColor="Black"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+                    <Button Text="Agregar producto"
+                        Command="{Binding AgregarProductosCommand}"
+                        HorizontalOptions="Center"
+                        BackgroundColor="LightPink"
+                        TextColor="Black"
+                        WidthRequest="100"
+                        HeightRequest="40"
+                        Margin="40"/>
+                    <Button Text="Editar producto"
+                        Command="{Binding EditarProductoCommand}"
+                        HorizontalOptions="Center"
+                        BackgroundColor="LightPink"
+                        TextColor="Black"
+                        WidthRequest="100"
+                        HeightRequest="40"
+                        Margin="40"/>
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal"
-                                 Padding="10"
-                                 BackgroundColor="Beige"
-                                 Margin="5,5,5,0">
-                                <Label Text="{Binding Nombre}"
-                                       FontSize="Medium"
-                                       TextColor="Black"
-                                       VerticalOptions="Center"/>
-                                <Label Text="{Binding Precio, StringFormat='{0:N2}'}"
-                                       FontSize="Small"
-                                       TextColor="Black"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="EndAndExpand"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollView>
-                <Button Text="Agregar producto"
-                    Command="{Binding AgregarProductosCommand}"
-                    HorizontalOptions="Center"
-                    BackgroundColor="LightPink"
-                    TextColor="Black"
-                    WidthRequest="100"
-                    HeightRequest="40"
-                    Margin="40"/>
-                <Button Text="Editar producto"
-                    Command="{Binding EditarProductoCommand}"
-                    HorizontalOptions="Center"
-                    BackgroundColor="LightPink"
-                    TextColor="Black"
-                    WidthRequest="100"
-                    HeightRequest="40"
-                    Margin="40"/>
-
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

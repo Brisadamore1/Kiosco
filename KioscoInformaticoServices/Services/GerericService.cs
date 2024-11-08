@@ -24,8 +24,7 @@ namespace KioscoInformaticoServices.Services
             string urlApi = Properties.Resources.UrlApi;
 
             if (Properties.Resources.Remoto == "false")
-            
-                 urlApi = Properties.Resources.UrlApiLocal;
+                urlApi = Properties.Resources.UrlApiLocal;
             
             this._endpoint = urlApi + ApiEndpoints.GetEndpoint(typeof(T).Name);
         }

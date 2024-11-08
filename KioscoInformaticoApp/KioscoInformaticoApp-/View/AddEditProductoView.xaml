@@ -14,12 +14,12 @@
                FontSize="Header"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
-        <Entry Placeholder="Nombre del producto"
+        <Entry Placeholder="Nombre del producto:$"
                Text="{Binding Nombre}"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
         <Entry Placeholder="Precio del producto"
-               Text="{Binding Precio}"
+               Text="{Binding Precio, StringFormat='{}{0:F2}'}"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
         <CheckBox IsChecked="{Binding Oferta}"
