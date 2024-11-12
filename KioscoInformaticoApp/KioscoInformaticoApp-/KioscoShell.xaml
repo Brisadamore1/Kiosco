@@ -51,6 +51,7 @@
         </Tab>
     </FlyoutItem>
     <MenuItem Text="Cerrar Sesión"
+              Command="{Binding LogoutCommand}"
               IconImageSource="random.png" />
     <ShellContent
         Title="Iniciar Sesión"

@@ -1,6 +1,7 @@
 ﻿
 using CommunityToolkit.Mvvm.Messaging;
 using KioscoInformaticoApp_.Class;
+using KioscoInformaticoApp_.View;
 using KioscoInformaticoApp_.ViewModels;
 
 namespace KioscoInformaticoApp_
@@ -16,7 +17,14 @@ namespace KioscoInformaticoApp_
             //    OnReceiveMessage(mensaje);
             //});
             FlyoutItemsPrincipal.IsVisible= false;
+            RegisterRoutes();
         }
+
+        private void RegisterRoutes()
+        {
+           Routing.RegisterRoute("Registrarse", typeof(RegistrarseView));
+        }
+
         public void EnableAppAfterLogin()
         {
             FlyoutBehavior = FlyoutBehavior.Flyout; // Habilita el FlyOut
