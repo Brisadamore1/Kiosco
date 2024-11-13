@@ -15,7 +15,12 @@ else
          <div class="form-group mb-2">
             <label for="Nombre">Nombre:</label>
             <InputText id="Nombre" class="form-control" @bind-Value="producto.Nombre" />
-        </div> 
+        </div>
+        <div class="form-group mb-2">
+            <label for="imagen">Imagen:</label>
+            <ImageUpload OnUploadFile="ArchivoSubido" />
+            <img class="card-img mb-2" src="@producto.Imagen" />
+        </div>
 
         <button type="submit" class="btn btn-primary mb-2">Guardar</button>
         <ValidationSummary />
@@ -39,5 +44,9 @@ else
     {
         await ProductoService.UpdateAsync(producto);
         NavigationManager.NavigateTo("/productos");
+    }
+    private async Task ArchivoSubido(string urlImagen)
+    {
+        producto.Imagen = urlImagen;
     }
 }

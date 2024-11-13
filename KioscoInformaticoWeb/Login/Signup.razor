@@ -1,4 +1,4 @@
-﻿@page "/signin"
+﻿@page "/signup"
 @inject NavigationManager NavigationManager
 @inject FirebaseAuthService AuthService
 @inject SweetAlertService SweetAlert
@@ -57,17 +57,16 @@
         }
 
         var userId = await AuthService.createUserWithEmailAndPassword(email, password, name);
-           if (userId != null)
-            {
-                await SweetAlert.FireAsync("Registro exitoso", "Usuario registrado correctamente, bienvenido",                      SweetAlertIcon.Success);
-                NavigationManager.NavigateTo($"/");
-            }
-            else
-            {
-                await SweetAlert.FireAsync("Error", "Error al registrar el usuario", SweetAlertIcon.Error);
-            }
+        if (userId != null)
+        {
+             await SweetAlert.FireAsync("Registro exitoso", "Usuario registrado correctamente, bienvenido",                      SweetAlertIcon.Success);
+             NavigationManager.NavigateTo($"/");
+        }
+        else
+        {
+             await SweetAlert.FireAsync("Error", "Error al registrar el usuario", SweetAlertIcon.Error);
+        }
         StateHasChanged();
-  
     }
 }
 

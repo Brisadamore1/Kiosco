@@ -121,7 +121,7 @@
     <value>https://datakioscobri-dccjfnaqaheceqft.brazilsouth-01.azurewebsites.net/api/</value>
   </data>
   <data name="Remoto" xml:space="preserve">
-    <value>true</value>
+    <value>false</value>
   </data>
   <data name="UrlApiLocal" xml:space="preserve">
     <value>https://localhost:7154/api/</value>

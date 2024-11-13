@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KioscoInformaticoBackend.Migrations
 {
     [DbContext(typeof(KioscoContext))]
-    [Migration("20241008192238_inicio")]
-    partial class inicio
+    [Migration("20241113195040_InicioProyecto")]
+    partial class InicioProyecto
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,6 +44,7 @@ namespace KioscoInformaticoBackend.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<int?>("LocalidadId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Nombre")
@@ -130,14 +131,14 @@ namespace KioscoInformaticoBackend.Migrations
                     b.Property<int>("FormaDePago")
                         .HasColumnType("int");
 
-                    b.Property<int>("Iva")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Iva")
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<int?>("ProveedorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Total")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(65,30)");
 
                     b.HasKey("Id");
 
@@ -152,9 +153,9 @@ namespace KioscoInformaticoBackend.Migrations
                             Eliminado = false,
                             Fecha = new DateTime(2021, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FormaDePago = 1,
-                            Iva = 21,
+                            Iva = 21m,
                             ProveedorId = 1,
-                            Total = 1000
+                            Total = 1000m
                         },
                         new
                         {
@@ -162,9 +163,9 @@ namespace KioscoInformaticoBackend.Migrations
                             Eliminado = false,
                             Fecha = new DateTime(2021, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FormaDePago = 2,
-                            Iva = 10,
+                            Iva = 10m,
                             ProveedorId = 2,
-                            Total = 2000
+                            Total = 2000m
                         },
                         new
                         {
@@ -172,9 +173,9 @@ namespace KioscoInformaticoBackend.Migrations
                             Eliminado = false,
                             Fecha = new DateTime(2021, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FormaDePago = 3,
-                            Iva = 5,
+                            Iva = 5m,
                             ProveedorId = 3,
-                            Total = 3000
+                            Total = 3000m
                         },
                         new
                         {
@@ -182,9 +183,9 @@ namespace KioscoInformaticoBackend.Migrations
                             Eliminado = false,
                             Fecha = new DateTime(2021, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FormaDePago = 1,
-                            Iva = 0,
+                            Iva = 0m,
                             ProveedorId = 4,
-                            Total = 4000
+                            Total = 4000m
                         });
                 });
 
@@ -212,6 +213,8 @@ namespace KioscoInformaticoBackend.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CompraId");
 
                     b.HasIndex("ProductoId");
 
@@ -359,6 +362,9 @@ namespace KioscoInformaticoBackend.Migrations
                     b.Property<bool>("Eliminado")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("Imagen")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -378,6 +384,7 @@ namespace KioscoInformaticoBackend.Migrations
                         {
                             Id = 1,
                             Eliminado = false,
+                            Imagen = "",
                             Nombre = "Coca Cola 2lts",
                             Oferta = false,
                             Precio = 2650m
@@ -386,6 +393,7 @@ namespace KioscoInformaticoBackend.Migrations
                         {
                             Id = 2,
                             Eliminado = false,
+                            Imagen = "",
                             Nombre = "Sprite 2lts",
                             Oferta = false,
                             Precio = 2450m
@@ -394,6 +402,7 @@ namespace KioscoInformaticoBackend.Migrations
                         {
                             Id = 3,
                             Eliminado = false,
+                            Imagen = "",
                             Nombre = "Fanta 2lts",
                             Oferta = false,
                             Precio = 2550m
@@ -590,7 +599,7 @@ namespace KioscoInformaticoBackend.Migrations
                             Id = 1,
                             ClienteId = 1,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 10, 8, 16, 22, 36, 189, DateTimeKind.Local).AddTicks(5641),
+                            Fecha = new DateTime(2024, 11, 13, 16, 50, 37, 986, DateTimeKind.Local).AddTicks(9974),
                             FormaPago = 1,
                             Iva = 21m,
                             Total = 3000m
@@ -600,7 +609,7 @@ namespace KioscoInformaticoBackend.Migrations
                             Id = 2,
                             ClienteId = 2,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 10, 8, 16, 22, 36, 189, DateTimeKind.Local).AddTicks(5665),
+                            Fecha = new DateTime(2024, 11, 13, 16, 50, 37, 986, DateTimeKind.Local).AddTicks(9996),
                             FormaPago = 2,
                             Iva = 10m,
                             Total = 5000m
@@ -610,7 +619,7 @@ namespace KioscoInformaticoBackend.Migrations
                             Id = 3,
                             ClienteId = 1,
                             Eliminado = false,
-                            Fecha = new DateTime(2024, 10, 8, 16, 22, 36, 189, DateTimeKind.Local).AddTicks(5668),
+                            Fecha = new DateTime(2024, 11, 13, 16, 50, 37, 987, DateTimeKind.Local),
                             FormaPago = 3,
                             Iva = 21m,
                             Total = 8000m
@@ -621,7 +630,9 @@ namespace KioscoInformaticoBackend.Migrations
                 {
                     b.HasOne("KioscoInformaticoServices.Models.Localidad", "Localidad")
                         .WithMany()
-                        .HasForeignKey("LocalidadId");
+                        .HasForeignKey("LocalidadId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Localidad");
                 });
@@ -637,11 +648,19 @@ namespace KioscoInformaticoBackend.Migrations
 
             modelBuilder.Entity("KioscoInformaticoServices.Models.DetalleCompra", b =>
                 {
+                    b.HasOne("KioscoInformaticoServices.Models.Compra", "Compra")
+                        .WithMany("DetallesCompra")
+                        .HasForeignKey("CompraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("KioscoInformaticoServices.Models.Producto", "Producto")
                         .WithMany()
                         .HasForeignKey("ProductoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Compra");
 
                     b.Navigation("Producto");
                 });
@@ -655,7 +674,7 @@ namespace KioscoInformaticoBackend.Migrations
                         .IsRequired();
 
                     b.HasOne("KioscoInformaticoServices.Models.Venta", "Venta")
-                        .WithMany()
+                        .WithMany("DetallesVenta")
                         .HasForeignKey("VentaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -683,6 +702,16 @@ namespace KioscoInformaticoBackend.Migrations
                         .IsRequired();
 
                     b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("KioscoInformaticoServices.Models.Compra", b =>
+                {
+                    b.Navigation("DetallesCompra");
+                });
+
+            modelBuilder.Entity("KioscoInformaticoServices.Models.Venta", b =>
+                {
+                    b.Navigation("DetallesVenta");
                 });
 #pragma warning restore 612, 618
         }
